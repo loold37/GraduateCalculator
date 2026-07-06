@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="컴퓨터교육과 전공 및 교직 과목 졸업요건을 학기별로 직접 이수 관리하고 계산하는 미니멀 계산기입니다.">
+  <title>졸업요건 계산기 — 컴퓨터교육과</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- ===== Header ===== -->
+    <header class="app-header">
+      <div class="header-title-group">
+        <h1>졸업요건 계산기</h1>
+        <p>컴퓨터교육과 · 전공 &amp; 교직 이수 학기 관리 시스템</p>
+      </div>
+      <div class="header-actions">
+        <a href="https://knuin.knu.ac.kr/public/stddm/lectPlnInqr.knu" target="_blank" class="btn">🕒 시간표 조회</a>
+        <a href="https://knuin.knu.ac.kr/public/stddm/edu.knu?itttn_cd=191I" target="_blank" class="btn">📚 교육과정</a>
+        <button class="btn btn-danger" id="btn-reset" type="button">↻ 전체 초기화</button>
+      </div>
+    </header>
+
+    <!-- ===== Dashboard Summary ===== -->
+    <section class="dashboard-summary" aria-label="졸업요건 현황 요약">
+      <!-- 전공 이수학점 -->
+      <div class="summary-card" id="card-major-credits">
+        <div class="summary-label">전공 이수학점</div>
+        <div class="summary-value-group">
+          <span class="summary-value" id="major-credits-val">0</span>
+          <span class="summary-max">/ 60학점</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="major-credits-bar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+
+      <!-- 분야별 조건 (2)~(6) -->
+      <div class="summary-card" id="card-fields">
+        <div class="summary-label">분야별 이수 조건</div>
+        <div class="badges-row" id="field-badges-container">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+
+      <!-- 교직 이수학점 -->
+      <div class="summary-card" id="card-teaching-credits">
+        <div class="summary-label">교직 이수학점</div>
+        <div class="summary-value-group">
+          <span class="summary-value" id="teaching-credits-val">0</span>
+          <span class="summary-max">/ 22학점</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="teaching-credits-bar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- 교직 영역별 -->
+      <div class="summary-card" id="card-teaching-areas">
+        <div class="summary-label">교직 영역별 요건</div>
+        <div class="badges-row" id="teaching-badges-container">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2-Column Main Workspace ===== -->
+    <main class="workspace-grid">
+
+      <!-- Left Column: Real Semesters Grid -->
+      <section class="left-column">
+        <div class="column-title-bar">
+          <h2>실제 이수 학기</h2>
+          <span class="hint">우측 과목을 원하는 학기로 드래그하세요</span>
+        </div>
+        <div class="semesters-scroll-area">
+          <div class="semesters-grid" id="semesters-grid">
+            <!-- Populated by app.js (1-1 ~ 4-2) -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Uncompleted / Recommended Courses Sidebar -->
+      <aside class="right-column">
+        <div class="column-title-bar">
+          <h2>과목 목록 (미이수/권장)</h2>
+        </div>
+        <div class="recommended-panel" id="recommended-panel">
+          <nav class="recommended-nav">
+            <button class="rec-tab-btn active" data-tab="major" type="button">전공과목</button>
+            <button class="rec-tab-btn" data-tab="teaching" type="button">교직과목</button>
+          </nav>
+          <div class="recommended-content" id="recommended-content">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- ===== Graduation Banner ===== -->
+    <div class="graduation-banner" id="graduation-banner">
+      <div class="banner-text">
+        <h3 id="banner-title">졸업 요건 미충족</h3>
+        <p id="banner-desc">과목을 이수 학기 상자로 드래그하거나 선택하세요.</p>
+      </div>
+    </div>
+
+    <!-- ===== Notice ===== -->
+    <div class="notice">
+      <strong>⚠ 유의사항</strong><br>
+      • 전공 (2)~(6) 분야에 있는 과목은 타 과 개설 과목을 들으면 전공으로 인정되지 않음에 유의하시기 바랍니다.<br>
+      • 교직 과목 요건: 교직이론 12학점(6과목), 교직소양 6학점(4과목), 교육실습 4학점(2과목).<br>
+      • 본 웹 도구는 참고용이며, 정확한 졸업요건은 학과 사무실에서 최종 확인하시기 바랍니다.
+    </div>
+
+  </div>
+
+  <!-- ===== Reset Confirmation Dialog ===== -->
+  <dialog id="reset-dialog">
+    <h3>전체 초기화</h3>
+    <p>모든 이수 학기 체크 및 배치 기록이 초기화됩니다. 정말 초기화하시겠습니까?</p>
+    <div class="dialog-actions">
+      <button class="btn" id="dialog-cancel" type="button">취소</button>
+      <button class="btn btn-danger" id="dialog-confirm" type="button">초기화</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
