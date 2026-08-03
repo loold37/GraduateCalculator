@@ -708,3 +708,124 @@ dialog p {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+}
+.btn-sm:hover {
+  background-color: var(--bg-card-hover);
+  color: var(--text-main);
+}
+
+/* ===== Semester Edit Modal ===== */
+.semester-edit-section { margin-bottom: 20px; }
+.semester-edit-section-title { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+.semester-edit-list { display: flex; flex-direction: column; gap: 6px; }
+.semester-edit-row { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background-color: var(--bg-main); border-radius: var(--radius-sm); font-size: 0.85rem; }
+.semester-edit-row .course-name { flex: 1; color: var(--text-main); font-weight: 500; }
+.semester-edit-row .course-credits-label { color: var(--text-dim); font-size: 0.8rem; white-space: nowrap; }
+.grade-select { padding: 4px 8px; font-size: 0.8rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); background-color: var(--bg-card); color: var(--text-main); cursor: pointer; font-family: inherit; }
+.grade-select:focus { outline: none; border-color: var(--accent-primary); }
+.add-course-form { display: flex; gap: 8px; align-items: center; padding: 12px; background-color: var(--bg-main); border-radius: var(--radius-sm); }
+.add-course-form select, .add-course-form input { padding: 6px 10px; font-size: 0.8rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); background-color: var(--bg-card); color: var(--text-main); font-family: inherit; }
+.add-course-form #add-course-type { width: 100px; flex-shrink: 0; }
+.add-course-form #add-course-name-container { flex: 1; min-width: 0; }
+.add-course-form #add-course-name-container select,
+.add-course-form #add-course-name-container input { width: 100%; box-sizing: border-box; }
+.add-course-form #add-course-credits { width: 55px; flex-shrink: 0; }
+.add-course-form #add-course-grade { width: 90px; flex-shrink: 0; }
+.add-course-form input[readonly] { opacity: 0.6; cursor: not-allowed; }
+.add-course-form .btn-add { padding: 6px 14px; font-size: 0.8rem; font-weight: 600; background-color: var(--accent-primary); color: #fff; border: none; border-radius: var(--radius-sm); cursor: pointer; }
+.add-course-form .btn-add:hover { background-color: var(--accent-primary-hover); }
+.btn-delete-custom { background: none; border: none; color: var(--danger); cursor: pointer; font-size: 0.9rem; padding: 2px 6px; border-radius: var(--radius-sm); }
+.btn-delete-custom:hover { background-color: var(--danger-bg); }
+.custom-type-badge { font-size: 0.65rem; font-weight: 600; padding: 1px 6px; border-radius: var(--radius-sm); background-color: rgba(99, 102, 241, 0.12); color: #818cf8; white-space: nowrap; }
+.course-card-compact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 20px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+.course-card-compact .compact-name {
+  flex: 0 1 auto;
+  color: var(--text-main);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.course-card-compact .remove-course-btn {
+  margin-left: auto;
+}
+.semester-box-header { display: flex; justify-content: space-between; align-items: center; }
+.semester-header-info { display: flex; align-items: center; gap: 8px; }
+.semester-gpa { font-size: 0.75rem; color: var(--text-dim); }
+
+/* ===== Field Details Modal & Table ===== */
+.field-details-dialog {
+  max-width: 650px;
+  width: 95%;
+  padding: 24px;
+}
+
+#semester-edit-dialog {
+  max-width: 700px;
+}
+
+.field-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.field-table th, .field-table td {
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 12px;
+}
+
+.field-table th {
+  background-color: var(--bg-main);
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.field-table .field-label {
+  font-weight: 700;
+  background-color: var(--bg-main);
+  font-size: 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.field-table .field-label.met {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+
+.field-table .course-name-cell {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.course-completed-badge {
+  background-color: var(--success-bg);
+  color: var(--success);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
