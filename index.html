@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="data:,">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="정보·컴퓨터교육과 전공 및 교직 과목 졸업요건을 학기별로 직접 이수 관리하고 계산하는 미니멀 계산기입니다.">
   <title>졸업요건 계산기 — 정보·컴퓨터교육과</title>
@@ -20,6 +21,9 @@
         <p>정보·컴퓨터교육과 · 전공 &amp; 교직 이수 학기 관리 시스템</p>
       </div>
       <div class="header-actions">
+        <select id="major-select" class="btn" style="background-color: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-light); cursor: pointer; font-size: 0.8rem; padding: 6px 10px;">
+        </select>
+        <button class="btn btn-import" id="btn-excel-import" type="button">📂 성적표 불러오기</button>
         <a href="https://knuin.knu.ac.kr/public/stddm/lectPlnInqr.knu" target="_blank" class="btn">🕒 시간표 조회</a>
         <a href="https://knuin.knu.ac.kr/public/stddm/edu.knu?itttn_cd=191I" target="_blank" class="btn">📚 교육과정</a>
         <button class="btn btn-danger" id="btn-reset" type="button">↻ 전체 초기화</button>
@@ -34,59 +38,91 @@
           <span>총 졸업학점</span>
           <span id="total-gpa-display" style="font-size: 0.75rem;">총 평점 0.00</span>
         </div>
-        <div class="summary-value-group">
-          <span class="summary-value" id="total-credits-val">0</span>
-          <span class="summary-max">/ 140학점</span>
+        <div class="summary-value-group" style="flex: 1; display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+          <div style="margin-bottom: 0;">
+            <span class="summary-value" id="total-credits-val">0</span>
+            <span class="summary-max">/ 140학점</span>
+          </div>
+          <div class="legend" style="display: flex; gap: 8px; font-size: 0.75rem; color: var(--text-muted); align-items: center; margin-bottom: 4px;">
+            <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--accent-primary);"></span>전공</span>
+            <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: #f59e0b;"></span>교직</span>
+            <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: #10b981;"></span>교양</span>
+            <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: #8b5cf6;"></span>일반선택</span>
+          </div>
         </div>
-        <div class="progress-track">
-          <div class="progress-fill" id="total-credits-bar" style="width: 0%;"></div>
+        <div class="progress-track" id="total-credits-track">
         </div>
       </div>
 
       <!-- 전공 이수학점 -->
       <div class="summary-card" id="card-major-credits">
-        <div class="summary-label">전공 이수학점</div>
-        <div class="summary-value-group">
-          <span class="summary-value" id="major-credits-val">0</span>
-          <span class="summary-max">/ 60학점</span>
+        <div class="summary-label" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span>전공 요건</span>
+          <button class="btn btn-sm" id="btn-field-details" type="button">자세히 보기</button>
+        </div>
+        <div style="display: flex; gap: 16px; margin-bottom: 8px; align-items: stretch; flex: 1;">
+          <div style="display: flex; flex-direction: column; justify-content: flex-end; white-space: nowrap;">
+            <div class="summary-value-group" style="margin-bottom: 0;">
+              <span class="summary-value" id="major-credits-val">0</span>
+              <span class="summary-max" id="major-credits-max">/ 60학점</span>
+            </div>
+          </div>
+          <div style="flex: 1; border-left: 1px solid var(--border-light); padding-left: 12px; display: flex; align-items: flex-end;">
+            <div class="badges-row" id="field-badges-container" style="margin-top: 0; justify-content: flex-start; align-items: center;">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
         </div>
         <div class="progress-track">
           <div class="progress-fill" id="major-credits-bar" style="width: 0%;"></div>
         </div>
       </div>
 
-
-      <!-- 분야별 조건 (2)~(6) -->
-      <div class="summary-card" id="card-fields">
-        <div class="summary-label" style="display: flex; justify-content: space-between; align-items: center;">
-          <span>분야별 이수 조건</span>
-          <button class="btn btn-sm" id="btn-field-details" type="button">자세히 보기</button>
-        </div>
-        <div class="badges-row" id="field-badges-container">
-          <!-- Populated by app.js -->
-        </div>
-      </div>
-
       <!-- 교직 이수학점 -->
       <div class="summary-card" id="card-teaching-credits">
-        <div class="summary-label">교직 이수학점</div>
-        <div class="summary-value-group">
-          <span class="summary-value" id="teaching-credits-val">0</span>
-          <span class="summary-max">/ 22학점</span>
+        <div class="summary-label" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span>교직 요건</span>
+          <button class="btn btn-sm" id="btn-teaching-details" type="button">자세히 보기</button>
+        </div>
+        <div style="display: flex; gap: 16px; margin-bottom: 8px; align-items: stretch; flex: 1;">
+          <div style="display: flex; flex-direction: column; justify-content: flex-end; white-space: nowrap;">
+            <div class="summary-value-group" style="margin-bottom: 0;">
+              <span class="summary-value" id="teaching-credits-val">0</span>
+              <span class="summary-max">/ 22학점</span>
+            </div>
+          </div>
+          <div style="flex: 1; border-left: 1px solid var(--border-light); padding-left: 12px; display: flex; align-items: flex-end;">
+            <div class="badges-row" id="teaching-badges-container" style="margin-top: 0; justify-content: flex-start; align-items: center;">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
         </div>
         <div class="progress-track">
-          <div class="progress-fill" id="teaching-credits-bar" style="width: 0%;"></div>
+          <div class="progress-fill" id="teaching-credits-bar" style="width: 0%; background-color: #f59e0b;"></div>
         </div>
       </div>
 
-      <!-- 교직 영역별 -->
-      <div class="summary-card" id="card-teaching-areas">
-        <div class="summary-label" style="display: flex; justify-content: space-between; align-items: center;">
-          <span>교직 영역별 요건</span>
-          <button class="btn btn-sm" id="btn-teaching-details" type="button">자세히 보기</button>
+      <!-- 교양 이수학점 -->
+      <div class="summary-card" id="card-gen-ed-credits">
+        <div class="summary-label" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span>교양 요건</span>
+          <button class="btn btn-sm" id="btn-gen-ed-details" type="button">자세히 보기</button>
         </div>
-        <div class="badges-row" id="teaching-badges-container">
-          <!-- Populated by app.js -->
+        <div style="display: flex; gap: 16px; margin-bottom: 8px; align-items: stretch; flex: 1;">
+          <div style="display: flex; flex-direction: column; justify-content: flex-end; white-space: nowrap;">
+            <div class="summary-value-group" style="margin-bottom: 0;">
+              <span class="summary-value" id="gen-ed-credits-val">0</span>
+              <span class="summary-max">/ 30학점</span>
+            </div>
+          </div>
+          <div style="flex: 1; border-left: 1px solid var(--border-light); padding-left: 12px; display: flex; align-items: flex-end;">
+            <div class="badges-row" id="gen-ed-badges-container" style="margin-top: 0; justify-content: flex-start; align-items: center;">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="gen-ed-credits-bar" style="width: 0%; background-color: #10b981;"></div>
         </div>
       </div>
     </section>
@@ -203,6 +239,44 @@
     </div>
   </dialog>
 
-  <script src="app.js"></script>
+  <!-- ===== Gen Ed Details Dialog ===== -->
+  <dialog id="gen-ed-details-dialog" class="field-details-dialog">
+    <div class="dialog-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <h3 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">교양 영역별 이수 현황</h3>
+      <button class="btn btn-sm" id="gen-ed-dialog-close" type="button">닫기</button>
+    </div>
+    <div id="gen-ed-details-body">
+      <!-- Populated by app.js -->
+    </div>
+  </dialog>
+
+  <!-- ===== Excel Import Dialog ===== -->
+  <dialog id="excel-import-dialog" class="field-details-dialog">
+    <div class="dialog-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <h3 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">성적표 엑셀 불러오기</h3>
+      <button class="btn btn-sm" id="excel-import-close" type="button">닫기</button>
+    </div>
+    <div class="excel-import-body">
+      <div style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 16px; background-color: rgba(148, 163, 184, 0.05); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); line-height: 1.5;">
+        <div style="font-weight: 600; color: var(--text-main); margin-bottom: 6px;">💡 성적 엑셀 파일 다운로드 방법</div>
+        <div>1. 통합정보시스템 ➔ 성적 ➔ 학기성적 ➔ <strong>이수성적조회</strong>로 이동합니다.</div>
+        <div>2. <strong>전체성적</strong> 탭을 클릭합니다.</div>
+        <div>3. 화면의 과목 목록 중 아무 과목이나 <strong>우클릭</strong>한 뒤 <strong>'엑셀다운로드(숨김항목포함)'</strong>을 선택합니다.</div>
+      </div>
+      <div class="excel-drop-zone" id="excel-drop-zone">
+        <div class="excel-drop-icon">📄</div>
+        <p>엑셀 파일을 여기에 드래그하거나 클릭하여 선택</p>
+        <input type="file" id="excel-file-input" accept=".xlsx,.xls" style="display: none;">
+      </div>
+      <div id="excel-import-preview" style="display: none;"></div>
+      <div class="excel-import-actions" id="excel-import-actions" style="display: none; margin-top: 12px; text-align: right;">
+        <button class="btn" id="excel-import-cancel" type="button">취소</button>
+        <button class="btn btn-primary" id="excel-import-confirm" type="button">가져오기</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

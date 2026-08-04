@@ -144,7 +144,7 @@ body {
 /* ===== Dashboard Summary ===== */
 .dashboard-summary {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
   margin-bottom: 28px;
 }
@@ -155,6 +155,8 @@ body {
   border-radius: var(--radius-md);
   padding: 16px 20px;
   transition: border-color var(--transition-fast);
+  display: flex;
+  flex-direction: column;
 }
 
 .summary-card.met {
@@ -521,6 +523,11 @@ body {
   color: var(--accent-primary);
 }
 
+.tag-subject-ed {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: var(--accent-primary);
+}
+
 .tag-practice {
   background-color: rgba(16, 185, 129, 0.15);
   color: var(--success);
@@ -571,7 +578,7 @@ body {
 }
 
 .course-card.in-semester::before {
-  content: '⠿';
+  content: '\28FF';
   position: absolute;
   left: 4px;
   top: 50%;
@@ -828,4 +835,195 @@ dialog p {
   font-size: 0.7rem;
   font-weight: 700;
   white-space: nowrap;
+}
+
+/* ===== Excel Import ===== */
+
+.btn-import {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.btn-import:hover {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary {
+  background: var(--accent-primary) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary:hover {
+  background: var(--accent-primary-hover) !important;
+}
+
+.excel-drop-zone {
+  border: 2px dashed var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 32px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  color: var(--text-dim);
+}
+
+.excel-drop-zone:hover,
+.excel-drop-zone.drag-over {
+  border-color: var(--accent-primary);
+  background: var(--accent-light);
+  color: var(--text-muted);
+}
+
+.excel-drop-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.excel-drop-zone p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.excel-preview-table {
+  width: 100%;
+  font-size: 0.78rem;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.excel-preview-table th,
+.excel-preview-table td {
+  padding: 6px 8px;
+  border: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.excel-preview-table th {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.excel-preview-summary {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+}
+
+/* ===== Gen Ed Details Modal ===== */
+
+.gen-ed-area-section {
+  margin-bottom: 16px;
+}
+
+.gen-ed-area-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+}
+
+.gen-ed-area-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.gen-ed-area-status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.gen-ed-area-status.met {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.gen-ed-area-status.unmet {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.gen-ed-course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 8px;
+}
+
+.gen-ed-course-chip {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card-hover);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.gen-ed-course-chip.taken {
+  background: var(--success-bg);
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* ===== Gen Ed Search in Add Course Form ===== */
+
+.gen-ed-search-container {
+  position: relative;
+  flex: 1;
+}
+
+.gen-ed-search-container input {
+  width: 100%;
+}
+
+.gen-ed-search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.gen-ed-search-item {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+.gen-ed-search-item:hover {
+  background: var(--accent-light);
+}
+
+.gen-ed-search-item .search-area {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  padding: 1px 6px;
+  background: var(--bg-card-hover);
+  border-radius: var(--radius-full);
 }
