@@ -1,0 +1,2586 @@
+[
+  {
+    "id": "CLTR0001",
+    "name": "국어와 매체언어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0003",
+    "name": "실용화법",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0011",
+    "name": "중국어1",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0012",
+    "name": "중국어2",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0016",
+    "name": "교양한문",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0017",
+    "name": "실용한자",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0021",
+    "name": "시사영어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0022",
+    "name": "프랑스어1",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0023",
+    "name": "프랑스어2",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0024",
+    "name": "독일어1",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0025",
+    "name": "독일어2",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0032",
+    "name": "일어 I",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0033",
+    "name": "일어 II",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0034",
+    "name": "영어 I",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0035",
+    "name": "영어 II",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0036",
+    "name": "러시아어 I",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0037",
+    "name": "러시아어 II",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0038",
+    "name": "스페인어",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0039",
+    "name": "베트남어",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0040",
+    "name": "스페인어 2",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0041",
+    "name": "한국사",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0042",
+    "name": "동양의역사와문화",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0043",
+    "name": "서양의역사와문화",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0044",
+    "name": "철학의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0045",
+    "name": "논리와 비판적 사고",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "사고교육",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0046",
+    "name": "고고학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0048",
+    "name": "철학사상사",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0053",
+    "name": "한국의문학과영화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0058",
+    "name": "자원봉사활동",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0061",
+    "name": "정치학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0069",
+    "name": "인간과성",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0073",
+    "name": "현대사회와 윤리",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0074",
+    "name": "결혼과 가족관계",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0078",
+    "name": "심리학의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0082",
+    "name": "매스컴과 사회",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0083",
+    "name": "경제의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0085",
+    "name": "경영의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0089",
+    "name": "회계와사회생활",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0090",
+    "name": "현대사회와법",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0091",
+    "name": "현대사회와행정",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0094",
+    "name": "문화인류학의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0095",
+    "name": "프랑스문화의이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0096",
+    "name": "영상으로보는독일문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0101",
+    "name": "인간과자연",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0102",
+    "name": "자연과학의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0103",
+    "name": "과학사의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0106",
+    "name": "화학의신비",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0107",
+    "name": "자연과환경",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0108",
+    "name": "생명의신비",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0112",
+    "name": "생활속의통계",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0117",
+    "name": "농업과환경",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0118",
+    "name": "생활과원예",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0120",
+    "name": "아름다운 지구",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0126",
+    "name": "중국문학의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0128",
+    "name": "일본문학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0130",
+    "name": "프랑스문학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0131",
+    "name": "독일문학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0132",
+    "name": "러시아문학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0133",
+    "name": "국악의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0134",
+    "name": "음악의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0156",
+    "name": "지구과학",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0171",
+    "name": "운동과건강",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0174",
+    "name": "현대사회와 스포츠",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0180",
+    "name": "골프",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0181",
+    "name": "호신술",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0183",
+    "name": "캠핑",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0184",
+    "name": "질병예방과 건강증진",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0185",
+    "name": "인간과주거문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0187",
+    "name": "현대인의 식생활",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0188",
+    "name": "현대인과 패션",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0190",
+    "name": "젠더와 사회",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0195",
+    "name": "C/C++프로그래밍기초",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0205",
+    "name": "대학글쓰기",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "글쓰기",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0208",
+    "name": "심화글쓰기",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "글쓰기",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0210",
+    "name": "명저읽기와 토론",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "독서와 토론",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0211",
+    "name": "수학 I",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0212",
+    "name": "수학 II",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0213",
+    "name": "물리학 I",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0214",
+    "name": "물리학 II",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0215",
+    "name": "화학 I",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0216",
+    "name": "화학 II",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0221",
+    "name": "통계학",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0223",
+    "name": "물리학실험 I",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0224",
+    "name": "물리학실험 II",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0226",
+    "name": "화학실험 I",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0227",
+    "name": "화학실험 II",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0233",
+    "name": "생물학실험 I",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0234",
+    "name": "생물학실험 II",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0242",
+    "name": "인문사회수학",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "수리",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0246",
+    "name": "일반생명과학Ⅰ",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0247",
+    "name": "일반생명과학Ⅱ",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0248",
+    "name": "한국사상과 윤리",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0251",
+    "name": "한국문학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0252",
+    "name": "논쟁술",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0253",
+    "name": "대중음악을 통한 미국문화와 영어표현법",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0255",
+    "name": "SciArt 들여다보기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0256",
+    "name": "법과 경제",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0258",
+    "name": "비만과 건강",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0264",
+    "name": "소셜네트워크",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0267",
+    "name": "웹 프로그래밍 기초",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0268",
+    "name": "파이선 프로그래밍",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0271",
+    "name": "독서로 세상보기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0301",
+    "name": "Korean Language I",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0302",
+    "name": "Korean Language II",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0313",
+    "name": "Modern Korean Society",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0327",
+    "name": "Korean Language III",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0342",
+    "name": "Korean Language Ⅳ",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0343",
+    "name": "Korean Language Ⅴ",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0344",
+    "name": "Korean Language Ⅵ",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0348",
+    "name": "Cultural Life in Korea",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0351",
+    "name": "Academic Writing & Study Skills",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0352",
+    "name": "Business Communication & Writing Skills",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0353",
+    "name": "Practical Korean Writing",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0354",
+    "name": "Practical Korean Listening",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0359",
+    "name": "Korea in Motion: Korean Film and the Korean Wave",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0361",
+    "name": "South Korea and International Relations",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0366",
+    "name": "Academic Korean Speaking",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0367",
+    "name": "Academic Korean Reading",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0372",
+    "name": "인공지능의 이해",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0373",
+    "name": "빅데이터 기초 실습",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0374",
+    "name": "생활 안전을 위한 공간적 사고",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0375",
+    "name": "대구경북의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0376",
+    "name": "디자인과 크리에이티브",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0401",
+    "name": "체력 컨디셔닝",
+    "credits": 2,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0402",
+    "name": "영상으로 읽는 셰익스피어 문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0403",
+    "name": "문학과 정신분석학",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0404",
+    "name": "20세기 중국의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0411",
+    "name": "실용영어1",
+    "credits": 2,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0412",
+    "name": "실용영어2",
+    "credits": 2,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0413",
+    "name": "비즈니스영어",
+    "credits": 2,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0455",
+    "name": "외국인을 위한 한국어 문법",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0457",
+    "name": "한국불교문화사",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0458",
+    "name": "러시아 문화 읽기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0460",
+    "name": "우주와 생명",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0462",
+    "name": "팔공산과 대구 문화의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0465",
+    "name": "수상레포츠",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0466",
+    "name": "영화를 통한 스포츠 읽기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0467",
+    "name": "전통문화체험",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0468",
+    "name": "인물로 본 서양사",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0469",
+    "name": "대구지리기행",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0471",
+    "name": "친환경적 삶과 건축",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0472",
+    "name": "현대예술의 표현방식과 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0473",
+    "name": "인도를 읽는 열두개의 시선",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0474",
+    "name": "역사로 보는 서양기업과 기업문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0475",
+    "name": "세계사 속의 유목민과 그들의 유산",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0476",
+    "name": "일본어 스피치와 프리젠테이션",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0483",
+    "name": "다문화 사회의 새로운 이해:현실과 쟁점",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0489",
+    "name": "여성과 중국정치의 역사",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0490",
+    "name": "인문학도를 위한 자연과학 산책",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0492",
+    "name": "르네상스 문학과 미술",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0499",
+    "name": "Discussions in English",
+    "credits": 2,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0501",
+    "name": "한국의 언어와 문학",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0503",
+    "name": "신화와 상상력",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0504",
+    "name": "동화의 세계",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0508",
+    "name": "인간과 언어",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0511",
+    "name": "내면의 수사학",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0513",
+    "name": "철학 상담",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0514",
+    "name": "논어에서 배우는 삶의 지혜",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0515",
+    "name": "과학기술과 윤리",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0518",
+    "name": "아름다움이란 무엇인가",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0520",
+    "name": "문화로 읽는 대중가요의 흐름",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0521",
+    "name": "기독교와 인류문명",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0523",
+    "name": "영상으로보는중국문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0524",
+    "name": "러시아, 러시아인",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0525",
+    "name": "영국의 역사와 문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0527",
+    "name": "한국문학과 사회",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0531",
+    "name": "현대지리학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0533",
+    "name": "인간의 삶과 사회복지",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0534",
+    "name": "교육학의이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0535",
+    "name": "패션과 사회",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0538",
+    "name": "시사생명과학",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0539",
+    "name": "생물다양성",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0540",
+    "name": "생명자원과 환경",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0541",
+    "name": "인간생활과 동물",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0542",
+    "name": "축산식품과 건강",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0543",
+    "name": "엑셀통계실험",
+    "credits": 1,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0544",
+    "name": "지구시스템의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0546",
+    "name": "우주의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0551",
+    "name": "중국의 사상과 윤리",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0552",
+    "name": "비즈니스 프랑스어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0553",
+    "name": "비즈니스 독일어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0554",
+    "name": "비즈니스 중국어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0555",
+    "name": "비즈니스 일본어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0556",
+    "name": "비즈니스 러시아어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0557",
+    "name": "아랍어",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0564",
+    "name": "프랑스영화의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0565",
+    "name": "프랑스동화의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0570",
+    "name": "문학과 영화, 그리고 나",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0572",
+    "name": "명상과 심리",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0577",
+    "name": "영남학과 지방학",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0581",
+    "name": "한국의 세계문화유산",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0582",
+    "name": "대한민국사",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0583",
+    "name": "일본대중문화의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0585",
+    "name": "과학과 문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0588",
+    "name": "중국정치이야기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0589",
+    "name": "시민사회 읽기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0591",
+    "name": "국제시사해설",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0594",
+    "name": "문화와 일상",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0601",
+    "name": "인문과 예술로 만나는 삶과 인성",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0603",
+    "name": "인간발달과 행복",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0605",
+    "name": "평생학습사회와 인간교육",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0608",
+    "name": "결혼준비 교육",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0609",
+    "name": "성격의 재발견",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0611",
+    "name": "예비부모교육",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0612",
+    "name": "인간관계 성공 레슨",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0613",
+    "name": "동서고전의 만남",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0614",
+    "name": "독도의 자연알기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0617",
+    "name": "성의진화",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0618",
+    "name": "이미지 메이킹 & 패션 코디네이션",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0619",
+    "name": "웰빙과 건강",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0620",
+    "name": "통일과 남북한 관계의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0622",
+    "name": "음식문화와 건강",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0625",
+    "name": "식생활과 사회 Issue",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0638",
+    "name": "디자인? 디자인!",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0639",
+    "name": "디자인과 현대문화",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0640",
+    "name": "음악, 철학 그리고 문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0641",
+    "name": "영화와 패션철학",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0642",
+    "name": "현대디자인사",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0643",
+    "name": "공연예술의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0646",
+    "name": "한국어로 보는 한국문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0652",
+    "name": "생활테니스",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0654",
+    "name": "댄스스포츠",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0657",
+    "name": "생활배드민턴",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0658",
+    "name": "생활수영",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0659",
+    "name": "생활스키",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0662",
+    "name": "현대사회와 인간관계",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0665",
+    "name": "한국의 선비문화와 고전",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0667",
+    "name": "세계문화의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0668",
+    "name": "인물따라 떠나는 한국사 기행",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0672",
+    "name": "영화로 철학하기",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0674",
+    "name": "문화 속의 상상력과 창의력",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0678",
+    "name": "영상으로 보는 일본문학",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0679",
+    "name": "데이터로 이해하는 일본인,일본어",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0680",
+    "name": "영화로 만나는 러시아와 동유럽 문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0682",
+    "name": "대중음악과 사회",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0685",
+    "name": "세계화시대의 여가에 대한 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0687",
+    "name": "유비쿼터스 정보와 미래사회",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0694",
+    "name": "형태구성 및 조형심리",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0698",
+    "name": "스토리 미술",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0700",
+    "name": "EU에 대한 이해 : 법,정치와 경제",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0701",
+    "name": "이태리어",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "외국어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0703",
+    "name": "행복한 삶과 가족",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0709",
+    "name": "웰빙, 웰에이징 그리고 웰다잉",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0710",
+    "name": "정보학의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0714",
+    "name": "복현모둠강좌",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0730",
+    "name": "국제개발협력의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0742",
+    "name": "옛이야기의 전통과 아름다움",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0743",
+    "name": "기후변화의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0750",
+    "name": "미래사회와 교육",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0751",
+    "name": "행정법의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0752",
+    "name": "민법학의 기초",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0753",
+    "name": "노동법의 이해",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0754",
+    "name": "정보사회와 지식재산",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0755",
+    "name": "식품위생의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0756",
+    "name": "EU and Global Development",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0759",
+    "name": "독도학",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0768",
+    "name": "글로벌· 다문화 사회와 미래교육",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0769",
+    "name": "글로벌· 다문화 인재 리더십",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0770",
+    "name": "글로벌· 다문화 현장 인턴십",
+    "credits": 1,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0774",
+    "name": "영화 속의 생명과학과 4차 산업",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0777",
+    "name": "지역학과 문화콘텐츠",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0780",
+    "name": "실용금융",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0781",
+    "name": "4차 산업혁명과 에너지 정책",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0782",
+    "name": "건강육아 레시피",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0783",
+    "name": "환경문제와 국가",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0785",
+    "name": "감염 미생물의 세계",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0791",
+    "name": "수학 리마인드",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0793",
+    "name": "Transnational Literature & Film",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0794",
+    "name": "오픈소스 소프트웨어 기초",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0795",
+    "name": "동양철학과 현대사회",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0796",
+    "name": "아시아 도시의 인문 여행",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0797",
+    "name": "한중 문화 콘텐츠 개발과 교류",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0798",
+    "name": "식품의 예술",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0799",
+    "name": "정보기술 윤리의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0800",
+    "name": "일상 속의 물리",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0801",
+    "name": "컴퓨터제작",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0802",
+    "name": "아두이노 코딩",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0803",
+    "name": "EU 문화와 경제 통합",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0805",
+    "name": "스페인·라틴아메리카의 역사와 문화",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0806",
+    "name": "토론의 준비와 실제",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0807",
+    "name": "신소재의 미래활용: 플라스틱",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0808",
+    "name": "상대성이론과 양자역학 입문",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "자연과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0809",
+    "name": "반려동물의 해부생리학적 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0810",
+    "name": "자동차구조 및 기술문화의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0811",
+    "name": "인문사회 코딩기초",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0812",
+    "name": "자연과학 코딩기초",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0813",
+    "name": "빅데이터와 R프로그래밍",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "소프트웨어",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0814",
+    "name": "인문사회 기초수학",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "수리",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0815",
+    "name": "인문사회 기초통계",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0816",
+    "name": "인문사회 기초생명과학",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0817",
+    "name": "인문사회 기초물리학 및 화학",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0818",
+    "name": "인문사회 기초지구과학",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0819",
+    "name": "기초수학2",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "수리",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0820",
+    "name": "기초수학1",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "수리",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0821",
+    "name": "물리학입문",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0822",
+    "name": "화학입문",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0823",
+    "name": "생명과학입문",
+    "credits": 3,
+    "group": "첨성인 기초",
+    "subGroup": "기초과학",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0824",
+    "name": "리더십승마",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0825",
+    "name": "인공지능과 케글분석",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0826",
+    "name": "인간과 AI 기술",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0827",
+    "name": "인공지능의 책임성과 윤리",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0828",
+    "name": "동아시아 문화리터러시",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0829",
+    "name": "지속가능한 미래를 위한 다양성과 세계시민성",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0830",
+    "name": "지속가능발전의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0831",
+    "name": "문학으로 배우는 교양법률",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0832",
+    "name": "중국의 전통문화와 현대",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0833",
+    "name": "컴퓨터의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0834",
+    "name": "인공지능융합교육개론",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0835",
+    "name": "에듀테크",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0836",
+    "name": "미래사회와 교사 역량",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0837",
+    "name": "환경교육특강",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0838",
+    "name": "해양생태학으로의 산책",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0839",
+    "name": "현대사회와 인권",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0840",
+    "name": "사회학적 상상력과 현대사회",
+    "credits": 3,
+    "group": "첨성인 핵심",
+    "subGroup": "인문사회",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0841",
+    "name": "인류사와 인류세",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0842",
+    "name": "반려동물과 함께하는 삶의 이해",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0843",
+    "name": "지속가능발전교육과 삶의 실천",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0844",
+    "name": "현대 도시 모빌리티의 풍경",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0845",
+    "name": "IT와 예술",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0846",
+    "name": "운동과 뇌",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0847",
+    "name": "ESG와 발명",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": false
+  },
+  {
+    "id": "CLTR0848",
+    "name": "스마트 기술의 이해와 활용",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  },
+  {
+    "id": "CLTR0849",
+    "name": "날씨와 생활",
+    "credits": 3,
+    "group": "일반교양",
+    "subGroup": "기타",
+    "isSdg": true
+  }
+]

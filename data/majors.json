@@ -1,0 +1,101 @@
+{
+  "majors": {
+    "computer": {
+      "name": "정보·컴퓨터교육과",
+      "storageKey": "grad-calc-v4-computer",
+      "courses": [
+        { "id": "COED0201", "name": "컴퓨터 프로그래밍 1", "credits": 3, "practice": true, "year": 1, "semester": 1, "field": "필수" },
+        { "id": "COED0202", "name": "컴퓨터 프로그래밍 2", "credits": 3, "practice": true, "year": 1, "semester": 2, "field": null },
+        { "id": "COED0204", "name": "컴퓨터수학", "credits": 3, "practice": false, "year": 1, "semester": 2, "field": "2" },
+        { "id": "COED0205", "name": "정보윤리교육론", "credits": 3, "practice": false, "year": 1, "semester": 2, "field": "6" },
+        { "id": "COED0203", "name": "컴퓨터 프로그래밍 3", "credits": 3, "practice": true, "year": 2, "semester": 1, "field": null },
+        { "id": "COME0331", "name": "자료구조", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "3" },
+        { "id": "COME0427", "name": "데이터베이스", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "3" },
+        { "id": "ELEC0247", "name": "논리회로", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "5" },
+        { "id": "COED0206", "name": "피지컬 컴퓨팅", "credits": 3, "practice": true, "year": 2, "semester": 2, "field": null },
+        { "id": "COED0207", "name": "정보보안 기초", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": null },
+        { "id": "COMP0325", "name": "알고리즘", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "2" },
+        { "id": "COMP0411", "name": "컴퓨터구조", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "5" },
+        { "id": "TCHR0593", "name": "컴퓨터교육론", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "필수" },
+        { "id": "COED0208", "name": "빅데이터 분석 개론", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": null },
+        { "id": "COED0209", "name": "AI융합 프로그래밍 실습", "credits": 3, "practice": true, "year": 3, "semester": 1, "field": null },
+        { "id": "MOBI0222", "name": "머신러닝", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": "2" },
+        { "id": "MOBI0224", "name": "딥러닝", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": null },
+        { "id": "TCHR0597", "name": "컴퓨터 교육과정과 평가", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": "필수" },
+        { "id": "COED0210", "name": "컴퓨터 네트워크 기초", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "4" },
+        { "id": "COED0211", "name": "IoT 프로그래밍", "credits": 3, "practice": true, "year": 3, "semester": 2, "field": null },
+        { "id": "COED0212", "name": "인공지능 융합교육론", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": null },
+        { "id": "COMP0312", "name": "운영체제", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "4" },
+        { "id": "COMP0422", "name": "소프트웨어공학", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "6" },
+        { "id": "COED0213", "name": "수업과 소프트웨어 활용", "credits": 3, "practice": false, "year": 4, "semester": 1, "field": null },
+        { "id": "COED0214", "name": "교육용 멀티미디어", "credits": 3, "practice": false, "year": 4, "semester": 1, "field": null },
+        { "id": "TCHR0594", "name": "컴퓨터교재연구및지도법", "credits": 3, "practice": false, "year": 4, "semester": 1, "field": "필수" },
+        { "id": "COED0215", "name": "인공지능 융합수업 설계", "credits": 3, "practice": false, "year": 4, "semester": 2, "field": null },
+        { "id": "COED0216", "name": "교육용 소프트웨어 개발", "credits": 3, "practice": false, "year": 4, "semester": 2, "field": null }
+      ],
+      "requirements": {
+        "majorTotalCredits": 60,
+        "majorRequiredCount": 4,
+        "majorFieldsNeeded": ["2", "3", "4", "5", "6"],
+        "badgeType": "fields"
+      }
+    },
+    "french": {
+      "name": "불어교육전공",
+      "storageKey": "grad-calc-v4-french",
+      "courses": [
+        { "id": "FRED0215", "name": "기초프랑스어문법1", "credits": 3, "practice": false, "year": 1, "semester": 1 },
+        { "id": "FRED0216", "name": "프랑스어입문", "credits": 3, "practice": false, "year": 1, "semester": 1 },
+        { "id": "FRED0232", "name": "기초프랑스어연습", "credits": 3, "practice": false, "year": 1, "semester": 1 },
+        { "id": "FRED0217", "name": "기초프랑스어문법2", "credits": 3, "practice": false, "year": 1, "semester": 2 },
+        { "id": "FRED0263", "name": "프랑스어강독", "credits": 3, "practice": false, "year": 1, "semester": 2 },
+        { "id": "FRED0292", "name": "기초프랑스문학텍스트", "credits": 3, "practice": false, "year": 1, "semester": 2 },
+        { "id": "FRED0313", "name": "중급프랑스어문법", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "전공필수" },
+        { "id": "FRED0333", "name": "프랑스어음성학", "credits": 3, "practice": false, "year": 2, "semester": 1 },
+        { "id": "FRED0335", "name": "프랑스어회화", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "전공필수" },
+        { "id": "FRED0344", "name": "프랑스단편강독", "credits": 3, "practice": false, "year": 2, "semester": 1 },
+        { "id": "FRAN0231", "name": "프랑스어작문", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "전공필수" },
+        { "id": "FRED0372", "name": "프랑스문학개론", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "전공필수" },
+        { "id": "FRED0385", "name": "중급프랑스어연습", "credits": 3, "practice": false, "year": 2, "semester": 2 },
+        { "id": "FRED0394", "name": "프랑스산문강독", "credits": 3, "practice": false, "year": 2, "semester": 2 },
+        { "id": "FRED0435", "name": "프랑스어회화연습", "credits": 2, "practice": false, "year": 3, "semester": 1 },
+        { "id": "FRED0444", "name": "프랑스문학교육론", "credits": 3, "practice": false, "year": 3, "semester": 1 },
+        { "id": "FRED0473", "name": "프랑스문학사조", "credits": 3, "practice": false, "year": 3, "semester": 1 },
+        { "id": "FRED0483", "name": "프랑스와프랑스어", "credits": 3, "practice": false, "year": 3, "semester": 1 },
+        { "id": "FRED0543", "name": "프랑스시", "credits": 3, "practice": false, "year": 3, "semester": 1 },
+        { "id": "TCHR0478", "name": "프랑스어 논리 및 논술지도", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": "교과교육", "subjectEd": true },
+        { "id": "FRED0422", "name": "프랑스소설", "credits": 3, "practice": false, "year": 3, "semester": 2 },
+        { "id": "FRED0462", "name": "프랑스어학개론", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "전공필수" },
+        { "id": "FRED0486", "name": "프랑스어작문연습", "credits": 2, "practice": false, "year": 3, "semester": 2 },
+        { "id": "FRED0495", "name": "프랑스어권문화", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "전공필수" },
+        { "id": "FRED0535", "name": "프랑스어권 한국어교육론", "credits": 3, "practice": false, "year": 3, "semester": 2 },
+        { "id": "TCHR0583", "name": "프랑스어교육론", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "전공필수", "subjectEd": true },
+        { "id": "FRED0540", "name": "프랑스희곡", "credits": 3, "practice": false, "year": 4, "semester": 1 },
+        { "id": "TCHR0584", "name": "프랑스어교재연구및지도법", "credits": 3, "practice": false, "year": 4, "semester": 1, "field": "교과교육", "subjectEd": true }
+      ],
+      "requirements": {
+        "majorTotalCredits": 58,
+        "majorRequiredCount": 7,
+        "majorSubjectEdCount": 3,
+        "badgeType": "french"
+      }
+    }
+  },
+  "teachingCourses": [
+    { "id": "TCHR0611", "name": "교육학개론", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0609", "name": "교육철학 및 교육사", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0601", "name": "교육과정", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0610", "name": "교육평가", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0604", "name": "교육방법 및 교육공학", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0607", "name": "교육심리", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0606", "name": "교육사회", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0612", "name": "교육행정 및 교육경영", "credits": 2, "practice": false, "area": "교직이론" },
+    { "id": "TCHR0528", "name": "특수교육학개론", "credits": 2, "practice": false, "area": "교직소양" },
+    { "id": "TCHR0521", "name": "교직실무 1", "credits": 1, "practice": false, "area": "교직소양" },
+    { "id": "TCHR0523", "name": "교직실무 2", "credits": 2, "practice": false, "area": "교직소양" },
+    { "id": "TCHR0520", "name": "생활지도및상담(교직소양)", "credits": 2, "practice": false, "area": "교직소양" },
+    { "id": "TCHR0553", "name": "디지털 교육", "credits": 1, "practice": false, "area": "교직소양" },
+    { "id": "TCHR0522", "name": "학교현장실습", "credits": 2, "practice": true, "area": "교육실습" },
+    { "id": "TCHR0552", "name": "교육봉사활동 2", "credits": 2, "practice": true, "area": "교육실습" }
+  ]
+}
