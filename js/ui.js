@@ -1,4 +1,4 @@
-import { store, loadState, saveState, switchMajor, setCourseSemester, resetAll, rebuildCourseMaps, onStateChange, applyExcelData } from './state.js';
+import { store, saveState, setCourseSemester, resetAll, applyExcelData } from './state.js';
 import { GEN_ED_AREA_REQUIREMENTS, REQUIREMENTS, GRADE_SCALE, computeStatus } from './calculator.js';
 import { parseTranscriptExcel, mapExcelToSemesters } from './excel.js';
 

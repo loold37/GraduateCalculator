@@ -1,98 +1,16 @@
 import { updateMajorUI, renderAll, initEvents, $ } from './js/ui.js';
-import { store, loadState, saveState, switchMajor, setCourseSemester, resetAll, rebuildCourseMaps, onStateChange } from './js/state.js';
+import { store, loadState, switchMajor, rebuildCourseMaps, onStateChange } from './js/state.js';
 
 /* =====================================================
-   졸업요건 계산기 — app.js
-   2-Column Drag & Drop / 이수학기 매핑 / 계산 엔진
+   졸업요건 계산기 — app.js (엔트리포인트)
+   모듈 초기화 및 데이터 로딩을 담당합니다.
    ===================================================== */
 
 (function () {
   'use strict';
 
-  // ───────── Course Data ─────────
-
-  // 정보·컴퓨터교육과 전공 과목
-
-  // ───────── Gen Ed Data ─────────
-
-  // Requirement thresholds (공통 교직/교양 요건)
-
-
-  // ───────── Grade Scale ─────────
-
-
-
-  // ───────── State ─────────
-
-  // store.takenMap: { [courseId]: semesterKey (e.g. '1-1') }
-  // store.gradesMap: { [courseId]: gradeString (e.g. 'A+', 'B0', 'S') }
-  // store.customCourses: array of { id, semester, type, name, credits }
-
-
-
-
-  
-
-
-
-  // ───────── Computation Engine ─────────
-
-  // ───────── DOM Helpers ─────────
-
-
-  // ───────── Render Functions ─────────
-
-  
-
-  // Dashboard Summary
-  
-
-  // Left Column: Real Semesters Grid (1-1 ~ 4-2)
-  
-
-  // Create a card for a custom course in a semester box
-  // Create a card for a custom course in a semester box
-  
-
-  // Right Column: Recommended / Uncompleted Courses Panel
-  
-
-  // Create Course Card Component
-  
-
-  // Graduation Banner
-  
-
-  // Field Details Modal Rendering
-  
-
-  // Teaching Details Modal Rendering
-  
-
-  // ───────── Semester Edit Modal ─────────
-
-  
-
-  
-
-  
-
-  // ───────── Gen Ed Details Modal ─────────
-
-  
-
-  // ───────── Excel Import ─────────
-
-
-  
-
-  
-
-  // Init Events & Controls
-  
-
   async function init() {
-    // 1. Load major data from JSON
+    // 1. 전공/교직 과목 데이터 로딩
     try {
       const resp = await fetch('data/majors.json');
       if (!resp.ok) throw new Error('Failed to fetch majors.json');
@@ -105,24 +23,24 @@ import { store, loadState, saveState, switchMajor, setCourseSemester, resetAll, 
       return;
     }
 
-    // Migrate old storage key to new per-major key
+    // 2. 레거시 스토리지 키 마이그레이션
     const oldData = localStorage.getItem('grad-calc-v4');
     if (oldData && !localStorage.getItem('grad-calc-v4-computer')) {
       localStorage.setItem('grad-calc-v4-computer', oldData);
       localStorage.removeItem('grad-calc-v4');
     }
 
-    // Ensure valid current major
+    // 3. 유효한 전공 확인
     if (!store.MAJORS[store.currentMajor]) {
       store.currentMajor = Object.keys(store.MAJORS)[0];
       localStorage.setItem('grad-calc-current-major', store.currentMajor);
     }
 
-    // Ensure course maps match the current major
+    // 4. 과목 맵 구축 및 저장된 상태 복원
     rebuildCourseMaps();
     loadState();
 
-    // Load gen ed courses data
+    // 5. 교양 과목 데이터 로딩
     try {
       const resp = await fetch('data/gen_ed_courses.json');
       if (resp.ok) {
@@ -132,10 +50,10 @@ import { store, loadState, saveState, switchMajor, setCourseSemester, resetAll, 
       console.warn('교양 과목 데이터를 불러올 수 없습니다:', e);
     }
 
-    // Major selector dynamic rendering and event
+    // 6. 전공 선택 드롭다운 렌더링
     const majorSelect = $('#major-select');
     if (majorSelect) {
-      majorSelect.innerHTML = ''; // Clear options
+      majorSelect.innerHTML = '';
       for (const key in store.MAJORS) {
         const option = document.createElement('option');
         option.value = key;
@@ -148,11 +66,14 @@ import { store, loadState, saveState, switchMajor, setCourseSemester, resetAll, 
       });
     }
 
+    // 7. 이벤트 바인딩 및 상태 구독
     initEvents();
     onStateChange(() => {
       updateMajorUI();
       renderAll();
     });
+
+    // 8. 초기 화면 렌더링
     updateMajorUI();
     renderAll();
   }
