@@ -22,6 +22,12 @@ export const GRADE_SCALE = {
     'U': null, // Fail - no credits, no GPA impact
   };
 
+export function convertGPAToScore(gpa) {
+  if (gpa <= 0) return 0;
+  if (gpa >= 4.3) return 100;
+  return Math.round(gpa * 10) + 56;
+}
+
 export function computeStatus(state) {
   const {
     currentMajor, MAJORS, SEMESTERS, gradesMap, takenMap, customCourses, ALL_COURSES_MAP, MAJOR_IDS, genEdCourses, mathScienceExempt
@@ -32,6 +38,9 @@ export function computeStatus(state) {
     let majorRequiredTaken = 0;
     let majorSubjectEdTaken = 0; // 불어교육전공: 교과교육 이수 과목 수
     const fieldTaken = { '2': false, '3': false, '4': false, '5': false, '6': false };
+    
+    let majorGpaWeightedSum = 0;
+    let majorGpaCreditsSum = 0;
 
     let teachingCredits = 0;
     let theoryCredits = 0;
@@ -41,6 +50,9 @@ export function computeStatus(state) {
     let theoryCount = 0;
     let cultureCount = 0;
     let practiceCount = 0;
+
+    let teachingGpaWeightedSum = 0;
+    let teachingGpaCreditsSum = 0;
 
     // For total credits and GPA
     let totalCredits = 0;
@@ -58,42 +70,36 @@ export function computeStatus(state) {
       const grade = gradesMap[courseId];
       const stats = semesterStats[semKey];
 
+      let earnedCredits = 0;
+      let gSum = 0;
+      let gCreds = 0;
+
       if (grade === 'F') {
-        // F: credits NOT counted, but GPA IS affected (0.0)
-        gpaWeightedSum += 0.0 * credits;
-        gpaCreditsSum += credits;
-        if (stats) {
-          stats.gpaSum += 0.0 * credits;
-          stats.gpaCredits += credits;
-        }
-        return 0; // no credits earned
+        gSum = 0.0 * credits;
+        gCreds = credits;
+        earnedCredits = 0;
       } else if (grade === 'U') {
-        // U: no credits, no GPA impact
-        return 0;
+        earnedCredits = 0;
       } else if (grade === 'S') {
-        // S: credits count, no GPA impact
-        if (stats) {
-          stats.credits += credits;
-        }
-        return credits;
+        earnedCredits = credits;
       } else if (grade && GRADE_SCALE[grade] !== undefined && GRADE_SCALE[grade] !== null) {
-        // Normal grade: credits count, GPA affected
         const gpaVal = GRADE_SCALE[grade];
-        gpaWeightedSum += gpaVal * credits;
-        gpaCreditsSum += credits;
-        if (stats) {
-          stats.credits += credits;
-          stats.gpaSum += gpaVal * credits;
-          stats.gpaCredits += credits;
-        }
-        return credits;
+        gSum = gpaVal * credits;
+        gCreds = credits;
+        earnedCredits = credits;
       } else {
-        // No grade assigned: credits counted normally, excluded from GPA
-        if (stats) {
-          stats.credits += credits;
-        }
-        return credits;
+        earnedCredits = credits;
       }
+
+      gpaWeightedSum += gSum;
+      gpaCreditsSum += gCreds;
+      if (stats) {
+        stats.credits += earnedCredits;
+        stats.gpaSum += gSum;
+        stats.gpaCredits += gCreds;
+      }
+
+      return { earnedCredits, gSum, gCreds };
     }
 
     // Process system courses (from takenMap)
@@ -102,11 +108,14 @@ export function computeStatus(state) {
       const course = ALL_COURSES_MAP.get(id);
       if (!course) continue;
 
-      const earnedCredits = processCourseGrade(id, course.credits, semKey);
+      const { earnedCredits, gSum, gCreds } = processCourseGrade(id, course.credits, semKey);
       totalCredits += earnedCredits;
 
       if (MAJOR_IDS.has(id)) {
         majorCredits += earnedCredits;
+        majorGpaWeightedSum += gSum;
+        majorGpaCreditsSum += gCreds;
+        
         if (earnedCredits > 0) {
           // 컴퓨터교육과: field === '필수'
           if (course.field === '필수') majorRequiredTaken++;
@@ -121,6 +130,9 @@ export function computeStatus(state) {
         }
       } else {
         teachingCredits += earnedCredits;
+        teachingGpaWeightedSum += gSum;
+        teachingGpaCreditsSum += gCreds;
+        
         if (course.area === '교직이론' && earnedCredits > 0) {
           theoryCredits += earnedCredits;
           theoryCount++;
@@ -138,13 +150,17 @@ export function computeStatus(state) {
 
     // Process custom courses
     for (const cc of customCourses) {
-      const earnedCredits = processCourseGrade(cc.id, cc.credits, cc.semester);
+      const { earnedCredits, gSum, gCreds } = processCourseGrade(cc.id, cc.credits, cc.semester);
       totalCredits += earnedCredits;
 
       if (cc.type === '전공') {
         majorCredits += earnedCredits;
+        majorGpaWeightedSum += gSum;
+        majorGpaCreditsSum += gCreds;
       } else if (cc.type === '교직') {
         teachingCredits += earnedCredits;
+        teachingGpaWeightedSum += gSum;
+        teachingGpaCreditsSum += gCreds;
       }
     }
 
@@ -226,6 +242,15 @@ export function computeStatus(state) {
     const totalGPA = gpaCreditsSum > 0 ? gpaWeightedSum / gpaCreditsSum : 0;
     const totalCreditsMet = totalCredits >= 140;
 
+    const majorGPA = majorGpaCreditsSum > 0 ? majorGpaWeightedSum / majorGpaCreditsSum : 0;
+    const teachingGPA = teachingGpaCreditsSum > 0 ? teachingGpaWeightedSum / teachingGpaCreditsSum : 0;
+
+    const majorScore = convertGPAToScore(majorGPA);
+    const teachingScore = convertGPAToScore(teachingGPA);
+
+    const majorScoreMet = majorScore >= 75;
+    const teachingScoreMet = teachingScore >= 80;
+
     // 교양 요건 체크
     const genEdCreditsMet = genEdCredits >= REQUIREMENTS.genEdTotalCredits;
     const genEdAreaMet = {};
@@ -243,8 +268,8 @@ export function computeStatus(state) {
       : allFieldsMet;
 
     const allRequirementsMet =
-      majorCreditsMet && majorRequiredMet && allMajorFieldsMet &&
-      teachingCreditsMet && theoryMet && cultureMet && practiceMet &&
+      majorCreditsMet && majorRequiredMet && allMajorFieldsMet && majorScoreMet &&
+      teachingCreditsMet && theoryMet && cultureMet && practiceMet && teachingScoreMet &&
       totalCreditsMet && genEdCreditsMet;
 
     const electiveCredits = totalCredits - (majorCredits + teachingCredits + genEdCredits);
@@ -257,6 +282,7 @@ export function computeStatus(state) {
       majorCreditsMet, majorRequiredMet, majorSubjectEdMet, allFieldsMet,
       teachingCreditsMet, theoryMet, cultureMet, practiceMet,
       totalCredits, totalGPA, totalCreditsMet, semesterStats,
+      majorGPA, teachingGPA, majorScore, teachingScore, majorScoreMet, teachingScoreMet,
       allRequirementsMet, bothPracticumsTaken,
       genEdCredits, genEdCreditsMet, genEdAreaCredits, genEdAreaMet, allGenEdAreasMet,
       electiveCredits,

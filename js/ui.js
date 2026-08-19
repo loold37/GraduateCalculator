@@ -85,6 +85,14 @@ export function renderDashboard(status) {
     const majorMax = $('#major-credits-max');
     if (majorMax) majorMax.textContent = `/ ${majorReqs.majorTotalCredits}학점`;
 
+    // Major GPA & Score display
+    const majorGPATruncated = Math.floor(status.majorGPA * 100) / 100;
+    const majorGpaDisplay = $('#major-gpa-display');
+    if (majorGpaDisplay) {
+      majorGpaDisplay.textContent = `평점 ${majorGPATruncated.toFixed(2)} (${status.majorScore}/75점)`;
+      majorGpaDisplay.style.color = status.majorScoreMet ? 'var(--text-muted)' : 'var(--danger)';
+    }
+
     // Fields & Required Badges (dynamic per major type)
     const fieldBadgesContainer = $('#field-badges-container');
     fieldBadgesContainer.innerHTML = '';
@@ -116,7 +124,7 @@ export function renderDashboard(status) {
       }
     }
 
-    const allMajorMet = status.majorCreditsMet && status.majorRequiredMet &&
+    const allMajorMet = status.majorCreditsMet && status.majorRequiredMet && status.majorScoreMet &&
       (majorReqs.badgeType === 'french' ? status.majorSubjectEdMet : status.allFieldsMet);
     $('#card-major-credits').classList.toggle('met', allMajorMet);
 
@@ -126,6 +134,14 @@ export function renderDashboard(status) {
     $('#teaching-credits-bar').style.width = teachPct + '%';
     $('#card-teaching-credits').classList.toggle('met', status.teachingCreditsMet);
 
+    // Teaching GPA & Score display
+    const teachingGPATruncated = Math.floor(status.teachingGPA * 100) / 100;
+    const teachingGpaDisplay = $('#teaching-gpa-display');
+    if (teachingGpaDisplay) {
+      teachingGpaDisplay.textContent = `평점 ${teachingGPATruncated.toFixed(2)} (${status.teachingScore}/80점)`;
+      teachingGpaDisplay.style.color = status.teachingScoreMet ? 'var(--text-muted)' : 'var(--danger)';
+    }
+
     // Teaching Areas
     const teachingBadgesContainer = $('#teaching-badges-container');
     teachingBadgesContainer.innerHTML = `
@@ -133,7 +149,7 @@ export function renderDashboard(status) {
       <span class="badge-item ${status.cultureMet ? 'met' : 'unmet'}">소양 ${status.cultureCount}/4</span>
       <span class="badge-item ${status.practiceMet ? 'met' : 'unmet'}">실습 ${status.practiceCount}/2</span>
     `;
-    const allTeachAreasMet = status.theoryMet && status.cultureMet && status.practiceMet;
+    const allTeachAreasMet = status.theoryMet && status.cultureMet && status.practiceMet && status.teachingScoreMet;
     const allTeachingMet = status.teachingCreditsMet && allTeachAreasMet;
     $('#card-teaching-credits').classList.toggle('met', allTeachingMet);
 
@@ -464,6 +480,7 @@ export function renderGraduationBanner(status) {
       const parts = [];
       if (!status.totalCreditsMet) parts.push(`총 학점 ${140 - status.totalCredits}학점 부족 (${status.totalCredits}/140)`);
       if (!status.majorCreditsMet) parts.push(`전공 ${status.majorReqs.majorTotalCredits - status.majorCredits}학점 부족`);
+      if (!status.majorScoreMet) parts.push(`전공 성적 미달 (${status.majorScore}/75점)`);
       if (!status.majorRequiredMet) parts.push(`필수 ${status.majorReqs.majorRequiredCount - status.majorRequiredTaken}과목 부족`);
       if (status.majorReqs.badgeType === 'french') {
         if (!status.majorSubjectEdMet) parts.push(`교과교육 ${status.majorReqs.majorSubjectEdCount - status.majorSubjectEdTaken}과목 부족`);
@@ -474,6 +491,7 @@ export function renderGraduationBanner(status) {
         }
       }
       if (!status.teachingCreditsMet) parts.push(`교직 ${REQUIREMENTS.teachingTotalCredits - status.teachingCredits}학점 부족`);
+      if (!status.teachingScoreMet) parts.push(`교직 성적 미달 (${status.teachingScore}/80점)`);
       if (!status.theoryMet) parts.push(`교직이론 ${REQUIREMENTS.teachingTheoryCredits - status.theoryCredits}학점 부족`);
       if (!status.cultureMet) parts.push(`교직소양 ${REQUIREMENTS.teachingCultureCredits - status.cultureCredits}학점 부족`);
       if (!status.practiceMet) parts.push(`교육실습 ${REQUIREMENTS.teachingPracticeCredits - status.practiceCredits}학점 부족`);
