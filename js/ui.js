@@ -26,9 +26,15 @@ export function updateMajorUI() {
     // Update title
     const title = document.querySelector('title');
     if (title) title.textContent = `졸업요건 계산기 — ${majorConfig.name}`;
+    // Update total credits max display
+    const totalMax = document.querySelector('#total-credits-max');
+    if (totalMax) totalMax.textContent = `/ ${majorReqs.totalCredits || 140}학점`;
     // Update major credits max display
     const majorMax = document.querySelector('#major-credits-max');
     if (majorMax) majorMax.textContent = `/ ${majorReqs.majorTotalCredits}학점`;
+    // Update teaching credits max display
+    const teachMax = document.querySelector('#teaching-credits-max');
+    if (teachMax) teachMax.textContent = `/ ${majorReqs.teachingTotalCredits !== undefined ? majorReqs.teachingTotalCredits : REQUIREMENTS.teachingTotalCredits}학점`;
     // Update select dropdown
     const selectEl = $('#major-select');
     if (selectEl) selectEl.value = store.currentMajor;
@@ -44,7 +50,10 @@ export function renderAll() {
 
 export function renderDashboard(status) {
     // Total Credits
+    const targetTotal = status.targetTotalCredits || 140;
     $('#total-credits-val').textContent = status.totalCredits;
+    const totalMax = $('#total-credits-max');
+    if (totalMax) totalMax.textContent = `/ ${targetTotal}학점`;
     $('#card-total-credits').classList.toggle('met', status.totalCreditsMet);
     const totalGPATruncated = Math.floor(status.totalGPA * 100) / 100;
     $('#total-gpa-display').textContent = `총 평점 ${totalGPATruncated.toFixed(2)}`;
@@ -52,25 +61,25 @@ export function renderDashboard(status) {
     const totalTrack = $('#total-credits-track');
     if (totalTrack) {
       totalTrack.style.display = 'flex';
-      
-      const capMajor = Math.min((status.majorCredits / 140) * 100, 100);
-      const capTeach = Math.min((status.teachingCredits / 140) * 100, 100 - capMajor);
-      const capGenEd = Math.min((status.genEdCredits / 140) * 100, 100 - capMajor - capTeach);
-      const capElec = Math.min((status.electiveCredits / 140) * 100, 100 - capMajor - capTeach - capGenEd);
+      const majorRatio = Math.min((status.majorCredits / targetTotal) * 100, 100);
+      const teachRatio = Math.min((status.teachingCredits / targetTotal) * 100, 100);
+      const genEdRatio = status.hasGenEd ? Math.min((status.genEdCredits / targetTotal) * 100, 100) : 0;
+      const elecRatio = Math.min((status.electiveCredits / targetTotal) * 100, 100);
 
       const segments = [
-        { width: capMajor, color: 'var(--accent-primary)', title: `전공 ${status.majorCredits}학점` },
-        { width: capTeach, color: '#f59e0b', title: `교직 ${status.teachingCredits}학점` },
-        { width: capGenEd, color: '#10b981', title: `교양 ${status.genEdCredits}학점` },
-        { width: capElec, color: '#8b5cf6', title: `일반선택 ${status.electiveCredits}학점` }
-      ].filter(s => s.width > 0);
+        { width: majorRatio, color: 'var(--accent-primary)', title: `전공: ${status.majorCredits}학점` },
+        { width: teachRatio, color: '#f59e0b', title: `교직: ${status.teachingCredits}학점` },
+      ];
+      if (status.hasGenEd) {
+        segments.push({ width: genEdRatio, color: '#10b981', title: `교양: ${status.genEdCredits}학점` });
+      }
+      segments.push({ width: elecRatio, color: '#8b5cf6', title: `일반선택: ${status.electiveCredits}학점` });
 
       let segmentsHtml = '';
-      segments.forEach((seg, i) => {
-        let radiusStyle = '';
-        if (i === 0) radiusStyle += 'border-top-left-radius: var(--radius-full); border-bottom-left-radius: var(--radius-full); ';
-        if (i === segments.length - 1) radiusStyle += 'border-top-right-radius: var(--radius-full); border-bottom-right-radius: var(--radius-full); ';
-        segmentsHtml += `<div style="height: 100%; width: ${seg.width}%; background-color: ${seg.color}; ${radiusStyle}" title="${seg.title}"></div>`;
+      segments.forEach(seg => {
+        if (seg.width > 0) {
+          segmentsHtml += `<div class="progress-segment" style="width: ${seg.width}%; background-color: ${seg.color}; height: 100%; transition: width var(--transition-normal);" title="${seg.title}"></div>`;
+        }
       });
       totalTrack.innerHTML = segmentsHtml;
     }
@@ -90,14 +99,24 @@ export function renderDashboard(status) {
     const majorGpaDisplay = $('#major-gpa-display');
     if (majorGpaDisplay) {
       majorGpaDisplay.textContent = `평점 ${majorGPATruncated.toFixed(2)} (${status.majorScore}/75점)`;
-      majorGpaDisplay.style.color = status.majorScoreMet ? 'var(--text-muted)' : 'var(--danger)';
     }
 
     // Fields & Required Badges (dynamic per major type)
     const fieldBadgesContainer = $('#field-badges-container');
     fieldBadgesContainer.innerHTML = '';
 
-    if (majorReqs.badgeType === 'french') {
+    if (majorReqs.badgeType === 'gradFrench') {
+      // 교육대학원 불어교육전공: 전공필수(교과교육 6학점) + 기본이수 (n/5)
+      const reqBadge = document.createElement('span');
+      reqBadge.className = `badge-item ${status.majorSubjectEdMet ? 'met' : 'unmet'}`;
+      reqBadge.textContent = `전공필수 ${status.majorSubjectEdTaken}/${majorReqs.majorSubjectEdCount || 2}`;
+      fieldBadgesContainer.appendChild(reqBadge);
+
+      const basicBadge = document.createElement('span');
+      basicBadge.className = `badge-item ${status.majorBasicReqMet ? 'met' : 'unmet'}`;
+      basicBadge.textContent = `기본이수 ${status.majorBasicReqTaken}/${majorReqs.majorBasicReqCount || 5}`;
+      fieldBadgesContainer.appendChild(basicBadge);
+    } else if (majorReqs.badgeType === 'french') {
       // 불어교육전공: 전공필수 (n/7) + 교과교육 (n/3) 뱃지
       const reqBadge = document.createElement('span');
       reqBadge.className = `badge-item ${status.majorRequiredMet ? 'met' : 'unmet'}`;
@@ -124,66 +143,88 @@ export function renderDashboard(status) {
       }
     }
 
-    const allMajorMet = status.majorCreditsMet && status.majorRequiredMet && status.majorScoreMet &&
-      (majorReqs.badgeType === 'french' ? status.majorSubjectEdMet : status.allFieldsMet);
+    let allMajorMet = false;
+    if (majorReqs.badgeType === 'gradFrench') {
+      allMajorMet = status.majorCreditsMet && status.majorBasicReqMet && status.majorSubjectEdMet && status.majorScoreMet;
+    } else if (majorReqs.badgeType === 'french') {
+      allMajorMet = status.majorCreditsMet && status.majorRequiredMet && status.majorSubjectEdMet && status.majorScoreMet;
+    } else {
+      allMajorMet = status.majorCreditsMet && status.majorRequiredMet && status.allFieldsMet && status.majorScoreMet;
+    }
     $('#card-major-credits').classList.toggle('met', allMajorMet);
 
     // Teaching Credits
     $('#teaching-credits-val').textContent = status.teachingCredits;
-    const teachPct = Math.min((status.teachingCredits / REQUIREMENTS.teachingTotalCredits) * 100, 100);
+    const teachMax = $('#teaching-credits-max');
+    if (teachMax) teachMax.textContent = `/ ${status.targetTeachingCredits}학점`;
+    const teachPct = Math.min((status.teachingCredits / status.targetTeachingCredits) * 100, 100);
     $('#teaching-credits-bar').style.width = teachPct + '%';
-    $('#card-teaching-credits').classList.toggle('met', status.teachingCreditsMet);
 
     // Teaching GPA & Score display
     const teachingGPATruncated = Math.floor(status.teachingGPA * 100) / 100;
     const teachingGpaDisplay = $('#teaching-gpa-display');
     if (teachingGpaDisplay) {
       teachingGpaDisplay.textContent = `평점 ${teachingGPATruncated.toFixed(2)} (${status.teachingScore}/80점)`;
-      teachingGpaDisplay.style.color = status.teachingScoreMet ? 'var(--text-muted)' : 'var(--danger)';
     }
 
     // Teaching Areas
     const teachingBadgesContainer = $('#teaching-badges-container');
-    teachingBadgesContainer.innerHTML = `
-      <span class="badge-item ${status.theoryMet ? 'met' : 'unmet'}">이론 ${status.theoryCount}/6</span>
-      <span class="badge-item ${status.cultureMet ? 'met' : 'unmet'}">소양 ${status.cultureCount}/4</span>
-      <span class="badge-item ${status.practiceMet ? 'met' : 'unmet'}">실습 ${status.practiceCount}/2</span>
-    `;
-    const allTeachAreasMet = status.theoryMet && status.cultureMet && status.practiceMet && status.teachingScoreMet;
+    if (status.isGrad) {
+      teachingBadgesContainer.innerHTML = `
+        <span class="badge-item ${status.teachingCreditsMet ? 'met' : 'unmet'}">교직 ${status.teachingCredits}/${status.targetTeachingCredits}학점</span>
+        <span class="badge-item">이론 ${status.theoryCount}과목</span>
+        <span class="badge-item">소양 ${status.cultureCount}과목</span>
+      `;
+    } else {
+      teachingBadgesContainer.innerHTML = `
+        <span class="badge-item ${status.theoryMet ? 'met' : 'unmet'}">이론 ${status.theoryCount}/6</span>
+        <span class="badge-item ${status.cultureMet ? 'met' : 'unmet'}">소양 ${status.cultureCount}/${status.cultureReqCount || 4}</span>
+        <span class="badge-item ${status.practiceMet ? 'met' : 'unmet'}">실습 ${status.practiceCount}/2</span>
+      `;
+    }
+    const allTeachAreasMet = status.isGrad ? (status.teachingCreditsMet && status.teachingScoreMet) : (status.theoryMet && status.cultureMet && status.practiceMet && status.teachingScoreMet);
     const allTeachingMet = status.teachingCreditsMet && allTeachAreasMet;
     $('#card-teaching-credits').classList.toggle('met', allTeachingMet);
 
-    // Gen Ed Credits
-    $('#gen-ed-credits-val').textContent = status.genEdCredits;
-    const genEdPct = Math.min((status.genEdCredits / REQUIREMENTS.genEdTotalCredits) * 100, 100);
-    $('#gen-ed-credits-bar').style.width = genEdPct + '%';
-    $('#card-gen-ed-credits').classList.toggle('met', status.genEdCreditsMet);
+    // Gen Ed Credits (비활성화 여부 분기)
+    const cardGenEd = $('#card-gen-ed-credits');
+    if (cardGenEd) {
+      if (status.hasGenEd === false) {
+        cardGenEd.style.display = 'none';
+      } else {
+        cardGenEd.style.display = '';
+        $('#gen-ed-credits-val').textContent = status.genEdCredits;
+        const genEdPct = Math.min((status.genEdCredits / REQUIREMENTS.genEdTotalCredits) * 100, 100);
+        $('#gen-ed-credits-bar').style.width = genEdPct + '%';
+        $('#card-gen-ed-credits').classList.toggle('met', status.genEdCreditsMet);
 
-    // Gen Ed Area Badges
-    const genEdBadgesContainer = $('#gen-ed-badges-container');
-    genEdBadgesContainer.innerHTML = '';
-    
-    // Group 1: 첨성인기초
-    const basicMet = status.genEdAreaMet['첨성인기초'] && status.genEdAreaMet['첨성인기초(수리/기초과학)'];
-    // Group 2: 첨성인핵심
-    const coreMet = status.genEdAreaMet['첨성인핵심(인문)'] && status.genEdAreaMet['첨성인핵심(자연)'];
-    // Group 3: SDG
-    const sdgMet = status.genEdAreaMet['SDG교양'];
+        // Gen Ed Area Badges
+        const genEdBadgesContainer = $('#gen-ed-badges-container');
+        genEdBadgesContainer.innerHTML = '';
+        
+        // Group 1: 첨성인기초
+        const basicMet = status.genEdAreaMet['첨성인기초'] && status.genEdAreaMet['첨성인기초(수리/기초과학)'];
+        // Group 2: 첨성인핵심
+        const coreMet = status.genEdAreaMet['첨성인핵심(인문)'] && status.genEdAreaMet['첨성인핵심(자연)'];
+        // Group 3: SDG
+        const sdgMet = status.genEdAreaMet['SDG교양'];
 
-    const genEdGroups = [
-      { name: '기초', met: basicMet },
-      { name: '핵심', met: coreMet },
-      { name: 'SDG', met: sdgMet }
-    ];
+        const genEdGroups = [
+          { name: '기초', met: basicMet },
+          { name: '핵심', met: coreMet },
+          { name: 'SDG', met: sdgMet }
+        ];
 
-    for (const group of genEdGroups) {
-      const badge = document.createElement('span');
-      badge.className = `badge-item ${group.met ? 'met' : 'unmet'}`;
-      badge.textContent = `${group.name} ${group.met ? 'O' : 'X'}`;
-      genEdBadgesContainer.appendChild(badge);
+        for (const group of genEdGroups) {
+          const badge = document.createElement('span');
+          badge.className = `badge-item ${group.met ? 'met' : 'unmet'}`;
+          badge.textContent = `${group.name} ${group.met ? 'O' : 'X'}`;
+          genEdBadgesContainer.appendChild(badge);
+        }
+        const allGenEdMet = status.genEdCreditsMet && status.allGenEdAreasMet;
+        $('#card-gen-ed-credits').classList.toggle('met', allGenEdMet);
+      }
     }
-    const allGenEdMet = status.genEdCreditsMet && status.allGenEdAreasMet;
-    $('#card-gen-ed-credits').classList.toggle('met', allGenEdMet);
   }
 
 export function renderLeftSemesters() {
@@ -314,42 +355,73 @@ export function renderRightRecommended() {
       }
     };
 
+    const status = computeStatus({ currentMajor: store.currentMajor, MAJORS: store.MAJORS, SEMESTERS, gradesMap: store.gradesMap, takenMap: store.takenMap, customCourses: store.customCourses, ALL_COURSES_MAP: store.ALL_COURSES_MAP, MAJOR_IDS: store.MAJOR_IDS, genEdCourses: store.genEdCourses, mathScienceExempt: store.mathScienceExempt, GRADE_SCALE, REQUIREMENTS, GEN_ED_AREA_REQUIREMENTS });
+    const majorReqs = status.majorReqs;
+
     if (store.currentRecTab === 'major') {
-      // Group by recommended semester
-      const groups = {};
-      for (const c of store.MAJOR_COURSES) {
-        const key = `${c.year}-${c.semester}`;
-        if (!groups[key]) groups[key] = [];
-        groups[key].push(c);
-      }
+      if (majorReqs.badgeType === 'gradFrench' || majorReqs.isGrad) {
+        // 대학원: 영역/분야별 그룹화
+        const gradGroups = [
+          { key: '기본이수', label: `기본이수 (${status.majorBasicReqTaken}/${majorReqs.majorBasicReqCount || 5}과목 이수)` },
+          { key: '교과교육', label: '교과교육' },
+          { key: '전공선택', label: '전공선택' },
+          { key: '논문연구', label: '논문연구' },
+        ];
 
-      const keys = Object.keys(groups).sort();
-      for (const key of keys) {
-        const [yr, sem] = key.split('-');
-        const groupEl = document.createElement('div');
-        groupEl.className = 'rec-course-group';
+        for (const g of gradGroups) {
+          const courses = store.MAJOR_COURSES.filter(c => c.field === g.key);
+          if (courses.length === 0) continue;
 
-        const title = document.createElement('div');
-        title.className = 'rec-section-title';
-        title.textContent = `${yr}학년 ${sem}학기 권장`;
-        groupEl.appendChild(title);
+          const groupEl = document.createElement('div');
+          groupEl.className = 'rec-course-group';
 
-        for (const c of groups[key]) {
-          groupEl.appendChild(createCourseCard(c, 'right'));
+          const title = document.createElement('div');
+          title.className = 'rec-section-title';
+          title.textContent = g.label;
+          groupEl.appendChild(title);
+
+          for (const c of courses) {
+            groupEl.appendChild(createCourseCard(c, 'right'));
+          }
+          container.appendChild(groupEl);
         }
-        container.appendChild(groupEl);
+      } else {
+        // 학부: 권장 학년-학기별 그룹화
+        const groups = {};
+        for (const c of store.MAJOR_COURSES) {
+          const key = `${c.year}-${c.semester}`;
+          if (!groups[key]) groups[key] = [];
+          groups[key].push(c);
+        }
+
+        const keys = Object.keys(groups).sort();
+        for (const key of keys) {
+          const [yr, sem] = key.split('-');
+          const groupEl = document.createElement('div');
+          groupEl.className = 'rec-course-group';
+
+          const title = document.createElement('div');
+          title.className = 'rec-section-title';
+          title.textContent = `${yr}학년 ${sem}학기 권장`;
+          groupEl.appendChild(title);
+
+          for (const c of groups[key]) {
+            groupEl.appendChild(createCourseCard(c, 'right'));
+          }
+          container.appendChild(groupEl);
+        }
       }
     } else {
       // Teaching Courses grouped by area
-      const status = computeStatus({ currentMajor: store.currentMajor, MAJORS: store.MAJORS, SEMESTERS, gradesMap: store.gradesMap, takenMap: store.takenMap, customCourses: store.customCourses, ALL_COURSES_MAP: store.ALL_COURSES_MAP, MAJOR_IDS: store.MAJOR_IDS, genEdCourses: store.genEdCourses, mathScienceExempt: store.mathScienceExempt, GRADE_SCALE, REQUIREMENTS, GEN_ED_AREA_REQUIREMENTS });
+      const teachingList = store.CURRENT_TEACHING_COURSES || store.TEACHING_COURSES;
       const areaInfo = [
         { name: '교직이론', count: status.theoryCount, req: 6 },
-        { name: '교직소양', count: status.cultureCount, req: 4 },
+        { name: '교직소양', count: status.cultureCount, req: status.cultureReqCount || 4 },
         { name: '교육실습', count: status.practiceCount, req: 2 },
       ];
 
       for (const area of areaInfo) {
-        const courses = store.TEACHING_COURSES.filter(c => c.area === area.name);
+        const courses = teachingList.filter(c => c.area === area.name);
         const groupEl = document.createElement('div');
         groupEl.className = 'rec-course-group';
 
@@ -378,7 +450,9 @@ export function createCourseCard(course, side) {
     let tagsHTML = '';
     if (course.field === '필수' || course.field === '전공필수') {
       tagsHTML += `<span class="tag tag-required">필수</span>`;
-    } else if (course.field && course.field !== '교과교육') {
+    } else if (course.field === '기본이수') {
+      tagsHTML += `<span class="tag tag-required">기본이수</span>`;
+    } else if (course.field && course.field !== '교과교육' && course.field !== '전공선택') {
       const fieldText = store.currentMajor === 'computer' ? `(${course.field})` : course.field;
       tagsHTML += `<span class="tag tag-field">${fieldText}</span>`;
     }
@@ -469,34 +543,41 @@ export function renderGraduationBanner(status) {
     const banner = $('#graduation-banner');
     const bannerTitle = $('#banner-title');
     const bannerDesc = $('#banner-desc');
+    const targetTotal = status.targetTotalCredits || 140;
 
     if (status.allRequirementsMet) {
       banner.className = 'graduation-banner met';
       bannerTitle.textContent = '🎓 모든 졸업 요건을 충족했습니다!';
       const majorName = store.MAJORS[store.currentMajor].name;
-      bannerDesc.textContent = `총 ${status.totalCredits}/140학점 · ${majorName} 전공 ${status.majorReqs.majorTotalCredits}학점 및 교직 22학점 이수가 모두 완료되었습니다.`;
+      bannerDesc.textContent = `총 ${status.totalCredits}/${targetTotal}학점 · ${majorName} 전공 ${status.majorReqs.majorTotalCredits}학점 및 교직 ${status.targetTeachingCredits}학점 이수가 모두 완료되었습니다.`;
     } else {
       banner.className = 'graduation-banner';
       const parts = [];
-      if (!status.totalCreditsMet) parts.push(`총 학점 ${140 - status.totalCredits}학점 부족 (${status.totalCredits}/140)`);
+      if (!status.totalCreditsMet) parts.push(`총 학점 ${targetTotal - status.totalCredits}학점 부족 (${status.totalCredits}/${targetTotal})`);
       if (!status.majorCreditsMet) parts.push(`전공 ${status.majorReqs.majorTotalCredits - status.majorCredits}학점 부족`);
       if (!status.majorScoreMet) parts.push(`전공 성적 미달 (${status.majorScore}/75점)`);
-      if (!status.majorRequiredMet) parts.push(`필수 ${status.majorReqs.majorRequiredCount - status.majorRequiredTaken}과목 부족`);
-      if (status.majorReqs.badgeType === 'french') {
+      if (status.majorReqs.badgeType === 'gradFrench') {
+        if (!status.majorSubjectEdMet) parts.push(`전공필수 ${status.majorReqs.majorSubjectEdCount - status.majorSubjectEdTaken}과목 부족 (6학점 필수)`);
+        if (!status.majorBasicReqMet) parts.push(`기본이수 ${status.majorReqs.majorBasicReqCount - status.majorBasicReqTaken}과목 부족`);
+      } else if (status.majorReqs.badgeType === 'french') {
+        if (!status.majorRequiredMet) parts.push(`전공필수 ${status.majorReqs.majorRequiredCount - status.majorRequiredTaken}과목 부족`);
         if (!status.majorSubjectEdMet) parts.push(`교과교육 ${status.majorReqs.majorSubjectEdCount - status.majorSubjectEdTaken}과목 부족`);
       } else {
+        if (!status.majorRequiredMet) parts.push(`필수 ${status.majorReqs.majorRequiredCount - status.majorRequiredTaken}과목 부족`);
         if (!status.allFieldsMet) {
           const missing = status.majorReqs.majorFieldsNeeded.filter(f => !status.fieldTaken[f]);
           parts.push(`분야 (${missing.join(',')}) 미이수`);
         }
       }
-      if (!status.teachingCreditsMet) parts.push(`교직 ${REQUIREMENTS.teachingTotalCredits - status.teachingCredits}학점 부족`);
+      if (!status.teachingCreditsMet) parts.push(`교직 ${status.targetTeachingCredits - status.teachingCredits}학점 부족 (${status.teachingCredits}/${status.targetTeachingCredits})`);
       if (!status.teachingScoreMet) parts.push(`교직 성적 미달 (${status.teachingScore}/80점)`);
-      if (!status.theoryMet) parts.push(`교직이론 ${REQUIREMENTS.teachingTheoryCredits - status.theoryCredits}학점 부족`);
-      if (!status.cultureMet) parts.push(`교직소양 ${REQUIREMENTS.teachingCultureCredits - status.cultureCredits}학점 부족`);
-      if (!status.practiceMet) parts.push(`교육실습 ${REQUIREMENTS.teachingPracticeCredits - status.practiceCredits}학점 부족`);
-      if (status.bothPracticumsTaken) parts.push(`⚠ 교직실무 1·2 동시 이수 불가 (택1)`);
-      if (!status.genEdCreditsMet) parts.push(`교양 ${REQUIREMENTS.genEdTotalCredits - status.genEdCredits}학점 부족`);
+      if (!status.isGrad) {
+        if (!status.theoryMet) parts.push(`교직이론 ${REQUIREMENTS.teachingTheoryCredits - status.theoryCredits}학점 부족`);
+        if (!status.cultureMet) parts.push(`교직소양 ${(status.cultureReqCredits || REQUIREMENTS.teachingCultureCredits) - status.cultureCredits}학점 부족`);
+        if (!status.practiceMet) parts.push(`교육실습 ${REQUIREMENTS.teachingPracticeCredits - status.practiceCredits}학점 부족`);
+        if (status.bothPracticumsTaken) parts.push(`⚠ 교직실무 1·2 동시 이수 불가 (택1)`);
+      }
+      if (status.hasGenEd && !status.genEdCreditsMet) parts.push(`교양 ${REQUIREMENTS.genEdTotalCredits - status.genEdCredits}학점 부족`);
 
       bannerTitle.textContent = '졸업 요건 미충족';
       bannerDesc.textContent = parts.length > 0 ? parts.join(' · ') : '과목을 이수 학기 상자로 드래그하거나 선택하세요.';
@@ -512,7 +593,14 @@ export function renderFieldDetailsTable() {
     const majorReqs = status.majorReqs;
 
     let groups;
-    if (majorReqs.badgeType === 'french') {
+    if (majorReqs.badgeType === 'gradFrench') {
+      groups = [
+        { key: '기본이수', label: '기본이수' },
+        { key: '교과교육', label: '교과교육' },
+        { key: '전공선택', label: '전공선택' },
+        { key: '논문연구', label: '논문연구' },
+      ];
+    } else if (majorReqs.badgeType === 'french') {
       groups = [
         { key: '전공필수', label: '전공필수' },
         { key: '교과교육', label: '교과교육' },
@@ -533,10 +621,14 @@ export function renderFieldDetailsTable() {
       if (courses.length === 0) return;
 
       let isGroupMet;
-      if (g.key === '필수' || g.key === '전공필수') {
+      if (g.key === '기본이수') {
+        isGroupMet = status.majorBasicReqMet;
+      } else if (g.key === '필수' || g.key === '전공필수') {
         isGroupMet = status.majorRequiredMet;
       } else if (g.key === '교과교육') {
         isGroupMet = status.majorSubjectEdMet;
+      } else if (g.key === '전공선택' || g.key === '논문연구') {
+        isGroupMet = true;
       } else {
         isGroupMet = status.fieldTaken[g.key];
       }
@@ -601,15 +693,16 @@ export function renderTeachingDetailsTable() {
     tbody.innerHTML = '';
 
     const status = computeStatus({ currentMajor: store.currentMajor, MAJORS: store.MAJORS, SEMESTERS, gradesMap: store.gradesMap, takenMap: store.takenMap, customCourses: store.customCourses, ALL_COURSES_MAP: store.ALL_COURSES_MAP, MAJOR_IDS: store.MAJOR_IDS, genEdCourses: store.genEdCourses, mathScienceExempt: store.mathScienceExempt, GRADE_SCALE, REQUIREMENTS, GEN_ED_AREA_REQUIREMENTS });
+    const teachingList = store.CURRENT_TEACHING_COURSES || store.TEACHING_COURSES;
 
     const groups = [
       { key: '교직이론', label: '교직이론', isMet: status.theoryMet, count: status.theoryCount, req: 6 },
-      { key: '교직소양', label: '교직소양', isMet: status.cultureMet, count: status.cultureCount, req: 4 },
+      { key: '교직소양', label: '교직소양', isMet: status.cultureMet, count: status.cultureCount, req: status.cultureReqCount || 4 },
       { key: '교육실습', label: '교육실습', isMet: status.practiceMet, count: status.practiceCount, req: 2 },
     ];
 
     groups.forEach(g => {
-      const courses = store.TEACHING_COURSES.filter(c => c.area === g.key);
+      const courses = teachingList.filter(c => c.area === g.key);
       if (courses.length === 0) return;
 
       const metClass = g.isMet ? ' met' : '';
@@ -822,7 +915,8 @@ export function updateAddCourseNameField() {
     if (!container) return;
 
     if (type === '전공' || type === '교직') {
-      const courses = type === '전공' ? store.MAJOR_COURSES : store.TEACHING_COURSES;
+      const teachingList = store.CURRENT_TEACHING_COURSES || store.TEACHING_COURSES;
+      const courses = type === '전공' ? store.MAJOR_COURSES : teachingList;
       const available = courses.filter(c => !store.takenMap[c.id]);
       let html = `<select id="add-course-name-select">`;
       html += `<option value="">과목 선택</option>`;

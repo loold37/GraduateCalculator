@@ -36,6 +36,7 @@ export function computeStatus(state) {
 
     let majorCredits = 0;
     let majorRequiredTaken = 0;
+    let majorBasicReqTaken = 0; // 교육대학원 기본이수 과목 수
     let majorSubjectEdTaken = 0; // 불어교육전공: 교과교육 이수 과목 수
     const fieldTaken = { '2': false, '3': false, '4': false, '5': false, '6': false };
     
@@ -121,7 +122,9 @@ export function computeStatus(state) {
           if (course.field === '필수') majorRequiredTaken++;
           // 불어교육전공: field === '전공필수'
           if (course.field === '전공필수') majorRequiredTaken++;
-          // 불어교육전공: 교과교육 이수 인정 (field가 교과교육이거나 subjectEd 플래그가 있는 경우)
+          // 교육대학원: 기본이수 과목
+          if (course.field === '기본이수' || course.basicReq) majorBasicReqTaken++;
+          // 교과교육 이수 인정 (field가 교과교육이거나 subjectEd 플래그가 있는 경우)
           if (course.field === '교과교육' || course.subjectEd) majorSubjectEdTaken++;
           // 컴퓨터교육과 분야별 추적
           if (course.field && fieldTaken.hasOwnProperty(course.field)) {
@@ -224,9 +227,17 @@ export function computeStatus(state) {
       adjustedCultureCredits = cultureCredits - 2; // 교직실무 2의 2학점 제외
     }
 
+    const hasGenEd = majorReqs.hasGenEd !== false;
+    const targetTotalCredits = majorReqs.totalCredits || 140;
+
     const fieldsMetCount = Object.values(fieldTaken).filter(Boolean).length;
     const majorCreditsMet = majorCredits >= majorReqs.majorTotalCredits;
-    const majorRequiredMet = majorRequiredTaken >= majorReqs.majorRequiredCount;
+    const majorBasicReqMet = majorReqs.majorBasicReqCount
+      ? majorBasicReqTaken >= majorReqs.majorBasicReqCount
+      : true;
+    const majorRequiredMet = majorReqs.badgeType === 'gradFrench'
+      ? majorBasicReqMet
+      : (majorReqs.majorRequiredCount ? majorRequiredTaken >= majorReqs.majorRequiredCount : true);
     const majorSubjectEdMet = majorReqs.majorSubjectEdCount
       ? majorSubjectEdTaken >= majorReqs.majorSubjectEdCount
       : true;
@@ -234,13 +245,18 @@ export function computeStatus(state) {
       ? fieldsMetCount >= majorReqs.majorFieldsNeeded.length
       : true;
 
-    const teachingCreditsMet = teachingCredits >= REQUIREMENTS.teachingTotalCredits;
-    const theoryMet = theoryCredits >= REQUIREMENTS.teachingTheoryCredits;
-    const cultureMet = adjustedCultureCredits >= REQUIREMENTS.teachingCultureCredits;
-    const practiceMet = practiceCredits >= REQUIREMENTS.teachingPracticeCredits;
+    const cultureReqCredits = majorReqs.teachingCultureCredits || REQUIREMENTS.teachingCultureCredits;
+    const cultureReqCount = majorReqs.teachingCultureReqCount || 4;
+    const targetTeachingCredits = majorReqs.teachingTotalCredits !== undefined ? majorReqs.teachingTotalCredits : REQUIREMENTS.teachingTotalCredits;
+    const isGrad = majorReqs.isGrad === true;
+
+    const teachingCreditsMet = teachingCredits >= targetTeachingCredits;
+    const theoryMet = isGrad ? true : (theoryCredits >= REQUIREMENTS.teachingTheoryCredits);
+    const cultureMet = isGrad ? true : (adjustedCultureCredits >= cultureReqCredits);
+    const practiceMet = isGrad ? true : (practiceCredits >= REQUIREMENTS.teachingPracticeCredits);
 
     const totalGPA = gpaCreditsSum > 0 ? gpaWeightedSum / gpaCreditsSum : 0;
-    const totalCreditsMet = totalCredits >= 140;
+    const totalCreditsMet = totalCredits >= targetTotalCredits;
 
     const majorGPA = majorGpaCreditsSum > 0 ? majorGpaWeightedSum / majorGpaCreditsSum : 0;
     const teachingGPA = teachingGpaCreditsSum > 0 ? teachingGpaWeightedSum / teachingGpaCreditsSum : 0;
@@ -252,39 +268,44 @@ export function computeStatus(state) {
     const teachingScoreMet = teachingScore >= 80;
 
     // 교양 요건 체크
-    const genEdCreditsMet = genEdCredits >= REQUIREMENTS.genEdTotalCredits;
+    const genEdCreditsMet = hasGenEd ? (genEdCredits >= REQUIREMENTS.genEdTotalCredits) : true;
     const genEdAreaMet = {};
     for (const [area, req] of Object.entries(GEN_ED_AREA_REQUIREMENTS)) {
-      if (area === '첨성인기초(수리/기초과학)' && mathScienceExempt) {
+      if (!hasGenEd || (area === '첨성인기초(수리/기초과학)' && mathScienceExempt)) {
         genEdAreaMet[area] = true;
       } else {
         genEdAreaMet[area] = (genEdAreaCredits[area] || 0) >= req;
       }
     }
-    const allGenEdAreasMet = Object.values(genEdAreaMet).every(Boolean);
+    const allGenEdAreasMet = hasGenEd ? Object.values(genEdAreaMet).every(Boolean) : true;
 
-    const allMajorFieldsMet = majorReqs.badgeType === 'french'
-      ? majorSubjectEdMet
-      : allFieldsMet;
+    let allMajorFieldsMet = true;
+    if (majorReqs.badgeType === 'gradFrench') {
+      allMajorFieldsMet = majorBasicReqMet && majorSubjectEdMet;
+    } else if (majorReqs.badgeType === 'french') {
+      allMajorFieldsMet = majorSubjectEdMet;
+    } else {
+      allMajorFieldsMet = allFieldsMet;
+    }
 
     const allRequirementsMet =
       majorCreditsMet && majorRequiredMet && allMajorFieldsMet && majorScoreMet &&
       teachingCreditsMet && theoryMet && cultureMet && practiceMet && teachingScoreMet &&
-      totalCreditsMet && genEdCreditsMet;
+      totalCreditsMet && (hasGenEd ? (genEdCreditsMet && allGenEdAreasMet) : true);
 
-    const electiveCredits = totalCredits - (majorCredits + teachingCredits + genEdCredits);
+    const electiveCredits = Math.max(0, totalCredits - (majorCredits + teachingCredits + (hasGenEd ? genEdCredits : 0)));
 
     return {
-      majorCredits, majorRequiredTaken, majorSubjectEdTaken, fieldTaken, fieldsMetCount,
+      majorCredits, majorRequiredTaken, majorBasicReqTaken, majorBasicReqMet, majorSubjectEdTaken, fieldTaken, fieldsMetCount,
       teachingCredits, theoryCredits,
       cultureCredits: adjustedCultureCredits, practiceCredits,
-      theoryCount, cultureCount: adjustedCultureCount, practiceCount, teachingTotalCount,
+      theoryCount, cultureCount: adjustedCultureCount, cultureReqCount, cultureReqCredits, practiceCount, teachingTotalCount,
       majorCreditsMet, majorRequiredMet, majorSubjectEdMet, allFieldsMet,
-      teachingCreditsMet, theoryMet, cultureMet, practiceMet,
-      totalCredits, totalGPA, totalCreditsMet, semesterStats,
+      teachingCreditsMet, theoryMet, cultureMet, practiceMet, targetTeachingCredits, isGrad,
+      totalCredits, totalGPA, totalCreditsMet, targetTotalCredits, semesterStats,
       majorGPA, teachingGPA, majorScore, teachingScore, majorScoreMet, teachingScoreMet,
       allRequirementsMet, bothPracticumsTaken,
-      genEdCredits, genEdCreditsMet, genEdAreaCredits, genEdAreaMet, allGenEdAreasMet,
+      hasGenEd, genEdCredits, genEdCreditsMet, genEdAreaCredits, genEdAreaMet, allGenEdAreasMet,
       electiveCredits,
       majorReqs, // pass requirements to renderers
     };

@@ -79,6 +79,59 @@
         "majorSubjectEdCount": 3,
         "badgeType": "french"
       }
+    },
+    "gradFrench": {
+      "name": "교육대학원 불어교육전공",
+      "storageKey": "grad-calc-v4-grad-french",
+      "courses": [
+        { "id": "FRED0834", "name": "프랑스와 언어", "credits": 3, "practice": false, "year": 1, "semester": 1, "field": "기본이수", "basicReq": true },
+        { "id": "FRED0846", "name": "구어프랑스어연습", "credits": 3, "practice": false, "year": 1, "semester": 1, "field": "기본이수", "basicReq": true },
+        { "id": "FRED0851", "name": "프랑스어문법연구", "credits": 3, "practice": false, "year": 1, "semester": 2, "field": "기본이수", "basicReq": true },
+        { "id": "FRED0861", "name": "프랑스문학이론지도법", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "기본이수", "basicReq": true },
+        { "id": "FRED0863", "name": "프랑스문화와 사상교육론", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "기본이수", "basicReq": true },
+        { "id": "TCHR0583", "name": "프랑스어교육론", "credits": 3, "practice": false, "year": 1, "semester": 2, "field": "교과교육", "subjectEd": true },
+        { "id": "TCHR0478", "name": "프랑스어 논리 및 논술지도", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "교과교육", "subjectEd": true },
+        { "id": "TCHR0584", "name": "프랑스어교재연구및지도법", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "전공선택" },
+        { "id": "FRED0847", "name": "프랑스어의어제와오늘", "credits": 3, "practice": false, "year": 1, "semester": 1, "field": "전공선택" },
+        { "id": "FRED0852", "name": "프랑스어발음지도연구", "credits": 3, "practice": false, "year": 1, "semester": 2, "field": "전공선택" },
+        { "id": "FRED0855", "name": "프랑스어작문지도연구", "credits": 3, "practice": false, "year": 2, "semester": 1, "field": "전공선택" },
+        { "id": "FRED0856", "name": "언어학과 프랑스어 교육", "credits": 3, "practice": false, "year": 2, "semester": 2, "field": "전공선택" },
+        { "id": "FRED0857", "name": "실재자료활용 프랑스어 교육연구", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": "전공선택" },
+        { "id": "FRED0858", "name": "프랑스어 의사소통연구", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": "전공선택" },
+        { "id": "FRED0859", "name": "프랑스문학교육론 특강", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "전공선택" },
+        { "id": "FRED0862", "name": "프랑스작가지도법", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "전공선택" },
+        { "id": "FRED0864", "name": "프랑스문학과 문화교육론", "credits": 3, "practice": false, "year": 3, "semester": 2, "field": "전공선택" },
+        { "id": "FRED0000", "name": "학위논문연구 및 연구윤리 (불어교육전공)", "credits": 3, "practice": false, "year": 3, "semester": 1, "field": "논문연구" }
+      ],
+      "teachingCourses": [
+        { "id": "TCHR0611", "name": "교육학개론", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0609", "name": "교육철학 및 교육사", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0601", "name": "교육과정", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0610", "name": "교육평가", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0604", "name": "교육방법 및 교육공학", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0607", "name": "교육심리", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0606", "name": "교육사회", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0612", "name": "교육행정 및 교육경영", "credits": 2, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0703", "name": "창의성 교육", "credits": 3, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0704", "name": "영재교육", "credits": 3, "practice": false, "area": "교직이론" },
+        { "id": "TCHR0528", "name": "특수교육학개론", "credits": 2, "practice": false, "area": "교직소양" },
+        { "id": "TCHR0529", "name": "교직실무", "credits": 2, "practice": false, "area": "교직소양" },
+        { "id": "TCHR0520", "name": "생활지도및상담(교직소양)", "credits": 2, "practice": false, "area": "교직소양" },
+        { "id": "TCHR0522", "name": "학교현장실습", "credits": 2, "practice": true, "area": "교육실습" },
+        { "id": "TCHR0552", "name": "교육봉사활동 2", "credits": 2, "practice": true, "area": "교육실습" }
+      ],
+      "requirements": {
+        "isGrad": true,
+        "hasGenEd": false,
+        "totalCredits": 24,
+        "majorTotalCredits": 21,
+        "majorRequiredCount": 2,
+        "majorRequiredCredits": 6,
+        "majorBasicReqCount": 5,
+        "majorSubjectEdCount": 2,
+        "teachingTotalCredits": 2,
+        "badgeType": "gradFrench"
+      }
     }
   },
   "teachingCourses": [

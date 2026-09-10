@@ -1,6 +1,7 @@
 export const store = {
   MAJORS: {},
   TEACHING_COURSES: [],
+  CURRENT_TEACHING_COURSES: [],
   currentMajor: localStorage.getItem("grad-calc-current-major") || "computer",
   MAJOR_COURSES: [],
   ALL_COURSES: [],
@@ -61,8 +62,10 @@ export function saveState() {
 }
 
 export function rebuildCourseMaps() {
-  store.MAJOR_COURSES = store.MAJORS[store.currentMajor].courses;
-  store.ALL_COURSES = [...store.MAJOR_COURSES, ...store.TEACHING_COURSES];
+  const majorConfig = store.MAJORS[store.currentMajor];
+  store.MAJOR_COURSES = majorConfig ? majorConfig.courses : [];
+  store.CURRENT_TEACHING_COURSES = (majorConfig && majorConfig.teachingCourses) ? majorConfig.teachingCourses : store.TEACHING_COURSES;
+  store.ALL_COURSES = [...store.MAJOR_COURSES, ...store.CURRENT_TEACHING_COURSES];
   store.ALL_COURSES_MAP = new Map(store.ALL_COURSES.map(c => [c.id, c]));
   store.MAJOR_IDS = new Set(store.MAJOR_COURSES.map(c => c.id));
 }
